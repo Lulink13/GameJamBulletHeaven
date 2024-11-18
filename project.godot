@@ -12,8 +12,4 @@ config_version=5
 
 config/name="GameJamBulletHeaven"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
-
-[rendering]
-
-renderer/rendering_method="forward_plus"
+config/icon="res://Images/icon.svg"
