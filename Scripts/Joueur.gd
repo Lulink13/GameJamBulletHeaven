@@ -5,11 +5,16 @@ const SPEED = 300.0
 const ACCEL = 0.5 * SPEED
 var spd : Vector2 = Vector2(0, 0)
 const JUMP_VELOCITY = -400.0
+var hp: int = 100
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-
+func _ready() -> void:
+	pass
+	#var screen_size: Vector2i = screen_get_position()
+	#position = Vector2(screen_size.x / 2, screen_size.y / 2)
+	
 func _physics_process(delta):
 	# Add the gravity.
 	
@@ -32,6 +37,7 @@ func _physics_process(delta):
 		spd.x -= ACCEL / 2 if spd.x > 0 else -ACCEL / 2
 		if abs(spd.x) < 2 * ACCEL:
 			spd.x = 0
+	
 
 	velocity = spd
 
