@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dricobr3vv6mk"]
+[gd_scene load_steps=3 format=3 uid="uid://dricobr3vv6mk"]
 
 [ext_resource type="PackedScene" uid="uid://cop73h0esmvdg" path="res://Scenes/scene_joueur.tscn" id="1_6vqqe"]
+[ext_resource type="PackedScene" uid="uid://bpttjmqifxeje" path="res://Scenes/scene_enemy.tscn" id="2_v4brb"]
 
 [node name="Racine" type="Node2D"]
 
@@ -8,3 +9,6 @@
 format = 2
 
 [node name="Joueur" parent="." instance=ExtResource("1_6vqqe")]
+position = Vector2(555, 306)
+
+[node name="Enemy" parent="." instance=ExtResource("2_v4brb")]
