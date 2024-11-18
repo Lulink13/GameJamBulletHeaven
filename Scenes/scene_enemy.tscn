@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpttjmqifxeje"]
+[gd_scene load_steps=4 format=3 uid="uid://bpttjmqifxeje"]
 
+[ext_resource type="Script" path="res://Scripts/Ennemi.gd" id="1_ak30n"]
 [ext_resource type="Texture2D" uid="uid://ch6t02cdb4i5v" path="res://Images/icon.svg" id="1_sfwov"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1xu5"]
 size = Vector2(108, 109)
 
 [node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_ak30n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_sfwov")

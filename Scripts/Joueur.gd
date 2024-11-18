@@ -1,23 +1,17 @@
 extends CharacterBody2D
+class_name Joueur
 
-
-const SPEED : float = 300.0
+const SPEED : float = 30000.0
 const ACCEL : float = 0.1 * SPEED
 
 var hp : int = 10
 var spd : Vector2 = Vector2(0, 0)
-const JUMP_VELOCITY = -400.0
-var hp: int = 100
 var invuln : bool = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-func _ready() -> void:
-	pass
-	#var screen_size: Vector2i = screen_get_position()
-	#position = Vector2(screen_size.x / 2, screen_size.y / 2)
-	
+
 func _physics_process(delta):
 	var direction_x = Input.get_axis("ui_left", "ui_right")
 	var direction_y = Input.get_axis("ui_up", "ui_down")
@@ -31,24 +25,22 @@ func _physics_process(delta):
 		spd.x -= ACCEL / 2 if spd.x > 0 else -ACCEL / 2
 		if abs(spd.x) < 2 * ACCEL:
 			spd.x = 0
-	
 
-	velocity = spd
+	velocity = spd*delta
 	move_and_slide()
 	if not invuln :
 		for i in get_slide_collision_count():
 			var collision = get_slide_collision(i)
-			if collision.is_ennemy():
+			if collision.get_collider() is Ennemi:
+				print("ennemi!!!")
 				hp -= collision.get_contact_damage()
 				if hp <= 0: queue_free()
 				else : invuln = false
 		$InvulnTimer.start()
-
 	get_slide_collision_count()
 
 func _on_invuln_timer_timeout() -> void:
 	invuln = false
-
 
 func _on_attack_timer_timeout() -> void:
 	pass # Replace with function body.
