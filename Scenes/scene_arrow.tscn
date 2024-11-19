@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmk2gaqa27axk"]
+
+[ext_resource type="Texture2D" uid="uid://cgr6vyotsak6v" path="res://Images/Items/Crossbow/crossbow_testing-removebg-preview.png" id="1_5kcge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qiycg"]
+size = Vector2(26, 128)
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_5kcge")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3, 0)
+shape = SubResource("RectangleShape2D_qiycg")
