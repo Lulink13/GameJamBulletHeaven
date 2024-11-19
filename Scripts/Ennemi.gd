@@ -17,6 +17,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if player.alive :#and not player.invuln :
 		velocity = (player.position - global_position).normalized() * speed * delta
+		if velocity.x > 0 : $AnimatedSprite2D.play("RunR")
+		elif velocity.x <0 : $AnimatedSprite2D.play("RunL")
 	else :
 		velocity = Vector2(0,0)
 	

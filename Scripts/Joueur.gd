@@ -16,6 +16,20 @@ func _physics_process(delta):
 	var direction = Vector2(Input.get_axis("ui_left", "ui_right"), Input.get_axis("ui_up", "ui_down")).normalized()
 	var tmp_spd : Vector2
 	
+	if direction!= Vector2(0,0) :
+		if abs(direction.x) > abs(direction.y):
+			if direction.x > 0 :
+				$AnimatedSprite2D.play("Walk_R")
+			else :
+				$AnimatedSprite2D.play("Walk_L")
+		else :
+			if direction.y > 0 :
+				$AnimatedSprite2D.play("Walk_D")
+			else :
+				$AnimatedSprite2D.play("Walk_U")
+	else :
+		$AnimatedSprite2D.play("Idle")
+	
 	if velocity.length() > 0.5:
 		aim = velocity.normalized()
 #-- Accélération --
@@ -36,7 +50,7 @@ func damage(ammount:int):
 	if not invuln :
 		hp -= ammount
 		if hp <= 0:
-			$Sprite2D.queue_free()
+			$AnimatedSprite2D.queue_free()
 			$CollisionShape2D.queue_free()
 			alive = false
 		else : invuln = true
