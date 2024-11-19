@@ -4,7 +4,7 @@ class_name Ennemi
 var player: Node2D
 #var direction: Vector2 = Vector2(0, 0)
 const SPEED = 140
-var ContactDamage = 1
+var contactDamage = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,8 +18,10 @@ func _process(delta: float) -> void:
 	else : spd = Vector2(0,0)
 	
 	var collision = move_and_collide(spd)
-	#if collision.get_collider() is Joueur :
-		#print("joueur!!")
+	if collision :
+		if collision.get_collider() is Joueur :
+			print("joueur!!")
+			collision.get_collider().damage(contactDamage)
 
-func get_contact_damage():
-	return ContactDamage
+#func get_contact_damage():
+	#return contactDamage

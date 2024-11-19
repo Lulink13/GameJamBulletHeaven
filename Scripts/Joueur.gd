@@ -16,26 +16,24 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
 	var direction = Vector2(Input.get_axis("ui_left", "ui_right"), Input.get_axis("ui_up", "ui_down")).normalized()
-	#print(direction)
 	var tmp_spd : Vector2
+	#print(direction)
 	
+#-- Accélération --
 	if direction.x == 0 :
 		tmp_spd.x = spd.move_toward(Vector2(0,0), DECEL*delta).x
-	#elif sign(direction.x) != sign(spd.x) :
-		#tmp_spd.x = spd.x + (direction.x * DECEL*delta)
 	else :	
 		tmp_spd.x = spd.x + (direction.x * ACCEL*delta)
-		
 	if direction.y == 0 :
 		tmp_spd.y = spd.move_toward(Vector2(0,0), DECEL*delta).y
-	#elif sign(direction.y) != sign(spd.y) :
-		#tmp_spd.y = spd.y + (direction.y * DECEL*delta)
 	else :
 		tmp_spd.y = spd.y + (direction.y * ACCEL*delta)
 	spd = tmp_spd.limit_length(SPEED)
-
+	
 	velocity = spd*delta
 	move_and_slide()
+
+#-- Prendre des dégâts --
 	if not invuln :
 		for i in get_slide_collision_count():
 			var collision = get_slide_collision(i)
