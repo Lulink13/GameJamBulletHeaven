@@ -3,11 +3,10 @@
 [ext_resource type="Script" path="res://Scripts/Joueur.gd" id="1_i4xdb"]
 [ext_resource type="Texture2D" uid="uid://ch6t02cdb4i5v" path="res://Images/icon.svg" id="2_p514f"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_s8dhf"]
-radius = 68.0974
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m75id"]
+size = Vector2(107, 102)
 
 [node name="Joueur" type="CharacterBody2D"]
-collision_mask = 0
 script = ExtResource("1_i4xdb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -15,7 +14,7 @@ texture = ExtResource("2_p514f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 1)
-shape = SubResource("CircleShape2D_s8dhf")
+shape = SubResource("RectangleShape2D_m75id")
 
 [node name="InvulnTimer" type="Timer" parent="."]
 
