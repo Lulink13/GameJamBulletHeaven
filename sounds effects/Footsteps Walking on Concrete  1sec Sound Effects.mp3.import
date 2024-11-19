@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://da4ncp8ilv7o0"
+path="res://.godot/imported/Footsteps Walking on Concrete  1sec Sound Effects.mp3-3896e666b862c0d1993d72eb8bd79f68.mp3str"
+
+[deps]
+
+source_file="res://sounds effects/Footsteps Walking on Concrete  1sec Sound Effects.mp3"
+dest_files=["res://.godot/imported/Footsteps Walking on Concrete  1sec Sound Effects.mp3-3896e666b862c0d1993d72eb8bd79f68.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

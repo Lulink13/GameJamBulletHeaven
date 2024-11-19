@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dtlxw6nwvwfii"
+path="res://.godot/imported/Rat Sounds Effect death.mp3-c05cb9688935529d548ba6e53f45b15f.mp3str"
+
+[deps]
+
+source_file="res://sounds effects/Rat Sounds Effect death.mp3"
+dest_files=["res://.godot/imported/Rat Sounds Effect death.mp3-c05cb9688935529d548ba6e53f45b15f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

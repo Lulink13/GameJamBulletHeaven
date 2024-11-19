@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://8qr068tgyveb"]
+
+[ext_resource type="Texture2D" uid="uid://ch6t02cdb4i5v" path="res://Images/icon.svg" id="1_ks1kj"]
+[ext_resource type="Script" path="res://Scenes/scene_spawner.gd" id="2_utibr"]
+
+[node name="Spawner" type="Sprite2D"]
+texture = ExtResource("1_ks1kj")
+script = ExtResource("2_utibr")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
