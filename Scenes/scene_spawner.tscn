@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://8qr068tgyveb"]
 
-[ext_resource type="Texture2D" uid="uid://ch6t02cdb4i5v" path="res://Images/icon.svg" id="1_ks1kj"]
+[ext_resource type="Texture2D" uid="uid://b5ocwlayimkbm" path="res://Images/Tiles/Spawner.png" id="1_ttnwd"]
 [ext_resource type="Script" path="res://Scenes/scene_spawner.gd" id="2_utibr"]
 
 [node name="Spawner" type="Sprite2D"]
-texture = ExtResource("1_ks1kj")
+texture = ExtResource("1_ttnwd")
 script = ExtResource("2_utibr")
 
 [node name="Timer" type="Timer" parent="."]
