@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Joueur.gd" id="1_i4xdb"]
 [ext_resource type="Texture2D" uid="uid://ch6t02cdb4i5v" path="res://Images/icon.svg" id="2_p514f"]
-[ext_resource type="PackedScene" uid="uid://bhoeqdagpdnsl" path="res://Scenes/scene_crossbow.tscn" id="3_dddkc"]
+[ext_resource type="PackedScene" uid="uid://cjjeuwcnjg1f5" path="res://Scenes/scene_crossbow.tscn" id="3_dddkc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s8dhf"]
 radius = 68.0974

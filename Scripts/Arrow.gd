@@ -1,9 +1,10 @@
-extends Area2D
+extends Sprite2D
+class_name Projectile
 
 # Arrow properties
-var arrow_speed = 400     # Adjust as needed
+var arrow_speed = 200     # Adjust as needed
 var arrow_damage = 1      # Adjust as needed
-
+var direction : Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -11,13 +12,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	move_and_slide()
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		collided_entity: Object = collision.get_collider()
-		if collided_entity is Ennemi:
-			print("ennemi touché!!!")
-			collided_entity.hp -= arrow_damage
-			$Sprite2D.queue_free()
-			$CollisionShape2D.queue_free()
-			
+	var velocity = arrow_speed * delta * direction
+	position += velocity
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Ennemi:
+		print("ennemi touché!!!")
+		#collided_entity.hp -= arrow_damage
+		$".".queue_free()
+	pass # Replace with function body.

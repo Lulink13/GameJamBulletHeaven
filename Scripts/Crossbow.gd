@@ -26,14 +26,15 @@ func handle_shooting():
 		get_tree().create_timer(shoot_cooldown).timeout.connect(func(): can_shoot = true)
 
 func shoot_arrow():
-	var arrow = arrow_scene.instantiate()
-	get_parent().add_child(arrow)
+	var arrow : Sprite2D = arrow_scene.instantiate()
+	get_node("/root/Racine/Projectiles").add_child(arrow)
 	arrow.global_position = global_position
 	
+	arrow.direction = get_node("../").aim
+	arrow.rotation = get_node("../").aim.angle()
 	# Get mouse position for aiming
 	#var mouse_pos = get_global_mouse_position()
 	#var direction = (mouse_pos - global_position).normalized()
 	#var direction = direction
 	
 	# Set arrow properties
-	arrow.direction = Vector2(1, 0)

@@ -20,3 +20,5 @@ spawnable = ExtResource("2_v4brb")
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("2_v4brb")]
 position = Vector2(1066, 472)
+
+[node name="Projectiles" type="Node" parent="."]
