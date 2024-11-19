@@ -4,7 +4,7 @@ class_name Ennemi
 var player: Node2D
 var enemiesNode: Node
 #var direction: Vector2 = Vector2(0, 0)
-@export var speed : int = 26000
+@export var speed : int = 10000
 @export var contactDamage : int = 1
 
 

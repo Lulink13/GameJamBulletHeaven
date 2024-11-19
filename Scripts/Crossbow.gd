@@ -26,7 +26,7 @@ func handle_shooting():
 		get_tree().create_timer(shoot_cooldown).timeout.connect(func(): can_shoot = true)
 
 func shoot_arrow():
-	var arrow : Sprite2D = arrow_scene.instantiate()
+	var arrow : Area2D = arrow_scene.instantiate()
 	get_node("/root/Racine/Projectiles").add_child(arrow)
 	arrow.global_position = global_position
 	

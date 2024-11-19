@@ -1,29 +1,24 @@
 [gd_scene load_steps=5 format=3 uid="uid://cop73h0esmvdg"]
 
 [ext_resource type="Script" path="res://Scripts/Joueur.gd" id="1_i4xdb"]
-[ext_resource type="Texture2D" uid="uid://ch6t02cdb4i5v" path="res://Images/icon.svg" id="2_p514f"]
+[ext_resource type="Texture2D" uid="uid://dg8dk6tfllf4r" path="res://Images/Personnages/Jhonny_le_héro_du_jeu_(version_test).png" id="2_q4woc"]
 [ext_resource type="PackedScene" uid="uid://cjjeuwcnjg1f5" path="res://Scenes/scene_crossbow.tscn" id="3_dddkc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s8dhf"]
-radius = 68.0974
+radius = 15.0
 
 [node name="Joueur" type="CharacterBody2D"]
-collision_mask = 0
+collision_mask = 8
 script = ExtResource("1_i4xdb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_p514f")
+texture = ExtResource("2_q4woc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 1)
 shape = SubResource("CircleShape2D_s8dhf")
 
 [node name="InvulnTimer" type="Timer" parent="."]
 
-[node name="AttackTimer" type="Timer" parent="."]
-autostart = true
-
 [node name="CrossBow" parent="." instance=ExtResource("3_dddkc")]
 
 [connection signal="timeout" from="InvulnTimer" to="." method="_on_invuln_timer_timeout"]
-[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

@@ -1,19 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://bpttjmqifxeje"]
 
 [ext_resource type="Script" path="res://Scripts/Ennemi.gd" id="1_ak30n"]
-[ext_resource type="Texture2D" uid="uid://ch6t02cdb4i5v" path="res://Images/icon.svg" id="1_sfwov"]
+[ext_resource type="Texture2D" uid="uid://ck00cfjdwnjib" path="res://Images/Personnages/rat test.png" id="2_oerm2"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xw8gt"]
-radius = 69.5288
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1pe38"]
+radius = 7.5
+height = 28.0
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 3
+collision_mask = 11
 script = ExtResource("1_ak30n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_sfwov")
+position = Vector2(0, -12)
+texture = ExtResource("2_oerm2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
-shape = SubResource("CircleShape2D_xw8gt")
+[node name="Hurtbox" type="CollisionShape2D" parent="."]
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_1pe38")

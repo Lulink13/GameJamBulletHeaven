@@ -1,9 +1,9 @@
 extends CharacterBody2D
 class_name Joueur
 
-const SPEED : float = 40000
-const ACCEL : float = 240000
-const DECEL : float = 140000
+const SPEED : float = 10000
+const ACCEL : float = 150000
+const DECEL : float = 70000
 
 var hp : int = 10
 var spd : Vector2 = Vector2(0, 0)
@@ -15,7 +15,7 @@ var alive = true
 func _physics_process(delta):
 	var direction = Vector2(Input.get_axis("ui_left", "ui_right"), Input.get_axis("ui_up", "ui_down")).normalized()
 	var tmp_spd : Vector2
-	#print(direction)
+	
 	if velocity.length() > 0.5:
 		aim = velocity.normalized()
 #-- Accélération --
