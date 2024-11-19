@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dewqgj48aego7" path="res://Images/Characters/Dark_elf/Dark_elf_walk_up.png" id="7_783lp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s8dhf"]
-radius = 8.0
+radius = 5.09902
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mlss0"]
 atlas = ExtResource("3_inlak")
@@ -261,9 +261,11 @@ shape = SubResource("CircleShape2D_s8dhf")
 [node name="CrossBow" parent="." instance=ExtResource("3_dddkc")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -11)
+position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_g536r")
 animation = &"Walk_D"
 autoplay = "Idle"
+frame_progress = 0.209171
 
+[connection signal="died" from="." to="CrossBow" method="_on_joueur_died"]
 [connection signal="timeout" from="InvulnTimer" to="." method="_on_invuln_timer_timeout"]
