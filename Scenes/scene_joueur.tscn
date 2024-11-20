@@ -1,9 +1,10 @@
-[gd_scene load_steps=40 format=3 uid="uid://cop73h0esmvdg"]
+[gd_scene load_steps=43 format=3 uid="uid://cop73h0esmvdg"]
 
 [ext_resource type="Script" path="res://Scripts/Joueur.gd" id="1_i4xdb"]
 [ext_resource type="PackedScene" uid="uid://cjjeuwcnjg1f5" path="res://Scenes/scene_crossbow.tscn" id="3_dddkc"]
 [ext_resource type="Texture2D" uid="uid://4dsauw6fgf1f" path="res://Images/Characters/Dark_elf/Dark_elf_idle_down.png" id="3_inlak"]
 [ext_resource type="Texture2D" uid="uid://dc8t0iurwy6bb" path="res://Images/Characters/Dark_elf/Dark_elf_walk_down.png" id="4_egwc1"]
+[ext_resource type="Texture2D" uid="uid://pwjim1f8bbrn" path="res://Images/Tiles/Grave.png" id="4_uj1xv"]
 [ext_resource type="Texture2D" uid="uid://cviyvcsmhmef6" path="res://Images/Characters/Dark_elf/Dark_elf_walk_left.png" id="5_dspe0"]
 [ext_resource type="Texture2D" uid="uid://bii18v32yapw1" path="res://Images/Characters/Dark_elf/Dark_elf_walk_right.png" id="6_21ht4"]
 [ext_resource type="Texture2D" uid="uid://dewqgj48aego7" path="res://Images/Characters/Dark_elf/Dark_elf_walk_up.png" id="7_783lp"]
@@ -34,6 +35,10 @@ region = Rect2(128, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rwhtt"]
 atlas = ExtResource("3_inlak")
 region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmygw"]
+atlas = ExtResource("4_uj1xv")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qsf3i"]
 atlas = ExtResource("4_egwc1")
@@ -158,6 +163,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_pmygw")
+}],
+"loop": false,
+"name": &"Tomb",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_qsf3i")
 }, {
 "duration": 1.0,
@@ -249,6 +262,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_p4n8s"]
+radius = 22.0227
+
 [node name="Joueur" type="CharacterBody2D"]
 collision_mask = 8
 script = ExtResource("1_i4xdb")
@@ -263,9 +279,16 @@ shape = SubResource("CircleShape2D_s8dhf")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_g536r")
-animation = &"Walk_D"
+animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.209171
+
+[node name="CoinVaccum" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinVaccum"]
+shape = SubResource("CircleShape2D_p4n8s")
+debug_color = Color(0.5094, 0.573541, 0.211127, 0.42)
 
 [connection signal="died" from="." to="CrossBow" method="_on_joueur_died"]
 [connection signal="timeout" from="InvulnTimer" to="." method="_on_invuln_timer_timeout"]
