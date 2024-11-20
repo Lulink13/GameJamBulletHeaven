@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GameJamBulletHeaven"
-run/main_scene="res://Scenes/Niveau_test.tscn"
+run/main_scene="res://Scenes/Niveau_UN.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://Images/icon.svg"
 
@@ -28,6 +28,7 @@ window/size/viewport_height=900
 2d_physics/layer_4="Murs"
 2d_physics/layer_5="Item collect"
 2d_physics/layer_6="item"
+2d_physics/layer_7="portail"
 
 [rendering]
 
