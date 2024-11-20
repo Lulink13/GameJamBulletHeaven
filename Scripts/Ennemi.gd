@@ -44,7 +44,6 @@ func damage(ammount:int):
 		$Hurtbox.queue_free()
 		$AnimatedSprite2D.play("death")
 
-
 func _on_animated_sprite_2d_animation_finished() -> void:
 	queue_free()
 	pass # Replace with function body.
