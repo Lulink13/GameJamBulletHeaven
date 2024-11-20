@@ -33,3 +33,8 @@ func update(ennemi, spawnCooldown) :
 func _on_joueur_died() -> void:
 	enabled = false
 	pass # Replace with function body.
+
+
+func _on_level_timer_timeout() -> void:
+	enabled=false
+	pass # Replace with function body.

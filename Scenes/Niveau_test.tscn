@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dricobr3vv6mk"]
+[gd_scene load_steps=10 format=3 uid="uid://dricobr3vv6mk"]
 
 [ext_resource type="PackedScene" uid="uid://cop73h0esmvdg" path="res://Scenes/scene_joueur.tscn" id="1_6vqqe"]
 [ext_resource type="TileSet" uid="uid://cvqfq42elepfm" path="res://Images/Tiles/test_TileSet.tres" id="1_muoam"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://d0dtwv8tpr64v" path="res://Scenes/coin.tscn" id="5_oi7j1"]
 [ext_resource type="Script" path="res://Scripts/Items_Node.gd" id="6_g2jgl"]
 [ext_resource type="Script" path="res://Scenes/label niveau.gd" id="7_cwqu1"]
+[ext_resource type="Script" path="res://Scenes/label_timer.gd" id="8_57o4n"]
+[ext_resource type="Texture2D" uid="uid://daloij1o1b0ll" path="res://Images/Items/Sword/Sword.png" id="9_o5cvl"]
 
 [node name="Racine" type="Node2D"]
 
@@ -45,13 +47,36 @@ script = ExtResource("6_g2jgl")
 [node name="coin" parent="Items" instance=ExtResource("5_oi7j1")]
 position = Vector2(63, 83)
 
-[node name="Label" type="Label" parent="."]
+[node name="Label LV XP" type="Label" parent="."]
 offset_left = -253.0
 offset_top = -147.0
 offset_right = -213.0
 offset_bottom = -124.0
-text = "LV: "
 script = ExtResource("7_cwqu1")
+
+[node name="Label Timer" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -135.0
+offset_right = 20.0
+offset_bottom = -112.0
+horizontal_alignment = 1
+script = ExtResource("8_57o4n")
+
+[node name="Level_Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Portal" type="Area2D" parent="."]
+position = Vector2(229, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Portal"]
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("9_o5cvl")
 
 [connection signal="died" from="Joueur" to="Spawner" method="_on_joueur_died"]
 [connection signal="died" from="Joueur" to="SpawnerCoin" method="_on_joueur_died"]
+[connection signal="timeout" from="Level_Timer" to="Spawner" method="_on_level_timer_timeout"]
+[connection signal="timeout" from="Level_Timer" to="Label Timer" method="_on_level_timer_timeout"]
