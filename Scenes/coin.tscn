@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0dtwv8tpr64v"]
 
-[ext_resource type="Script" path="res://Scenes/coin.gd" id="1_vqevy"]
+[ext_resource type="Script" path="res://Scripts/Coin.gd" id="1_vqevy"]
 [ext_resource type="Texture2D" uid="uid://o7377181pb1i" path="res://Images/Tiles/SilverCoinMini.png" id="2_7dpo4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pdvw"]

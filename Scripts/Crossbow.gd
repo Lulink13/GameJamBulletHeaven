@@ -45,13 +45,14 @@ func _on_timer_timeout() -> void:
 	# Set arrow properties
 
 func level_up() :
-	if niveau != len(stats.len()) :
+	if niveau < len(stats.niveaux) - 1 :
 		niveau+=1
 		set_level(niveau)
 
 func set_level(level:int) :
 	var new_stats = stats.niveaux[niveau]
 	shoot_cooldown = new_stats.cooldown
+	$Timer.wait_time= shoot_cooldown
 	damage_multiplier = new_stats.multiplicateur_degats
 	piercing = new_stats.penetration_prejectile
 

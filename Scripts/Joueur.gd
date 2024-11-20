@@ -3,6 +3,8 @@ class_name Joueur
 
 signal died
 
+@export var xp_curve : float = 1.3
+
 const SPEED : float = 180
 const ACCEL : float = 1000
 const DECEL : float = 1600
@@ -11,8 +13,9 @@ var hp : int = 3
 var spd : Vector2 = Vector2(0, 0)
 var aim: Vector2 = Vector2(0,1)
 
-var level = 1
-var xp = 0
+var level :int = 1
+var xp :int = 0
+var next_xp :int = 10
 
 var invuln : bool = false
 var alive = true
@@ -73,7 +76,12 @@ func damage(ammount:int):
 
 func collect_xp(ammount:int):
 	xp += ammount
-	print(xp, " Xp!")
+	if xp >= next_xp :
+		xp -= next_xp
+		level+=1
+		print("LEVEL UP!")
+		next_xp *= xp_curve
+		$CrossBow.level_up()
 
 func _on_invuln_timer_timeout() -> void:
 	invuln = false

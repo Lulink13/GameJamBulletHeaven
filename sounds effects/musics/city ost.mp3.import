@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://43efg1wgicgi"
+path="res://.godot/imported/city ost.mp3-ed4d86332024569d5e8f787a404badd6.mp3str"
+
+[deps]
+
+source_file="res://sounds effects/musics/city ost.mp3"
+dest_files=["res://.godot/imported/city ost.mp3-ed4d86332024569d5e8f787a404badd6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

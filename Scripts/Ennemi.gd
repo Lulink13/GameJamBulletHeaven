@@ -3,8 +3,11 @@ class_name Ennemi
 
 signal died
 
+@export var spawnable: PackedScene
+
 var player: Node2D
-var enemiesNode: Node
+#var enemiesNode: Node
+var itemNode: Node
 #var direction: Vector2 = Vector2(0, 0)
 var speed : int = 60
 var contactDamage : int = 1
@@ -14,7 +17,8 @@ var alive = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_node("/root/Racine/Joueur")
-	enemiesNode = get_node("/root/Enemies")
+	#enemiesNode = get_node("/root/Racine/Enemies")
+	itemNode = get_node("/root/Racine/Items")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -41,6 +45,9 @@ func damage(ammount:int):
 	if hp <= 0 :
 		alive = false
 		died.emit() #TODO
+		var coin:Objet = spawnable.instantiate()
+		itemNode.add_child(coin)
+		coin.position= self.global_position
 		$Hurtbox.queue_free()
 		$AnimatedSprite2D.play("death")
 
