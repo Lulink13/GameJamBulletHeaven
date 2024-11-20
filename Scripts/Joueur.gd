@@ -1,9 +1,11 @@
 extends CharacterBody2D
 class_name Joueur
 
-const SPEED : float = 40000
-const ACCEL : float = 240000
-const DECEL : float = 140000
+signal died
+
+const SPEED : float = 180
+const ACCEL : float = 1000
+const DECEL : float = 1600
 
 var hp : int = 10
 var spd : Vector2 = Vector2(0, 0)
@@ -12,12 +14,28 @@ var aim: Vector2 = Vector2(0,1)
 var invuln : bool = false
 var alive = true
 
+var attack : int = 1
+
 func _physics_process(delta):
+	if not alive : return
+
 	var direction = Vector2(Input.get_axis("ui_left", "ui_right"), Input.get_axis("ui_up", "ui_down")).normalized()
+	
+	if direction!= Vector2(0,0) :
+		if abs(direction.x) > abs(direction.y):
+			if direction.x > 0 :
+				$AnimatedSprite2D.play("Walk_R")
+			else :
+				$AnimatedSprite2D.play("Walk_L")
+		else :
+			if direction.y > 0 :
+				$AnimatedSprite2D.play("Walk_D")
+			else :
+				$AnimatedSprite2D.play("Walk_U")
+	else :
+		$AnimatedSprite2D.play("Idle")
+	
 	var tmp_spd : Vector2
-	#print(direction)
-	if velocity.length() > 0.5:
-		aim = velocity.normalized()
 #-- Accélération --
 	if direction.x == 0 :
 		tmp_spd.x = spd.move_toward(Vector2(0,0), DECEL*delta).x
@@ -29,16 +47,20 @@ func _physics_process(delta):
 		tmp_spd.y = spd.y + (direction.y * ACCEL*delta)
 	spd = tmp_spd.limit_length(SPEED)
 	
-	velocity = spd*delta
+	if velocity.length() > 0.5:
+		aim = velocity.normalized()
+	
+	velocity = spd
 	move_and_slide()
 
 func damage(ammount:int):
 	if not invuln :
 		hp -= ammount
 		if hp <= 0:
-			$Sprite2D.queue_free()
+			$AnimatedSprite2D.queue_free()
 			$CollisionShape2D.queue_free()
 			alive = false
+			died.emit()
 		else : invuln = true
 		$InvulnTimer.start() 
 		modulate = Color("Red")
