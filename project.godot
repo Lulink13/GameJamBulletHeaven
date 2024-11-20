@@ -26,6 +26,8 @@ window/size/viewport_height=900
 2d_physics/layer_2="Ennemi"
 2d_physics/layer_3="Projectiles"
 2d_physics/layer_4="Murs"
+2d_physics/layer_5="Item collect"
+2d_physics/layer_6="item"
 
 [rendering]
 

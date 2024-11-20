@@ -7,9 +7,12 @@ const SPEED : float = 180
 const ACCEL : float = 1000
 const DECEL : float = 1600
 
-var hp : int = 10
+var hp : int = 5
 var spd : Vector2 = Vector2(0, 0)
 var aim: Vector2 = Vector2(0,1)
+
+var level = 1
+var xp = 0
 
 var invuln : bool = false
 var alive = true
@@ -57,13 +60,19 @@ func damage(ammount:int):
 	if not invuln :
 		hp -= ammount
 		if hp <= 0:
-			$AnimatedSprite2D.queue_free()
+			modulate = Color("White")
+			$AnimatedSprite2D.play("Tomb")
 			$CollisionShape2D.queue_free()
 			alive = false
 			died.emit()
-		else : invuln = true
-		$InvulnTimer.start() 
-		modulate = Color("Red")
+		else : 
+			invuln = true
+			$InvulnTimer.start()
+			modulate = Color("Red")
+
+func collect_xp(ammount:int):
+	xp += ammount
+	print(xp, " Xp!")
 
 func _on_invuln_timer_timeout() -> void:
 	invuln = false
