@@ -7,7 +7,7 @@ const SPEED : float = 180
 const ACCEL : float = 1000
 const DECEL : float = 1600
 
-var hp : int = 5
+var hp : int = 3
 var spd : Vector2 = Vector2(0, 0)
 var aim: Vector2 = Vector2(0,1)
 
@@ -62,7 +62,8 @@ func damage(ammount:int):
 		if hp <= 0:
 			modulate = Color("White")
 			$AnimatedSprite2D.play("Tomb")
-			$CollisionShape2D.queue_free()
+			#$CollisionShape2D.queue_free()
+			$CoinVaccum.monitorable = false
 			alive = false
 			died.emit()
 		else : 

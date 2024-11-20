@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://binms4mw36le3"
+path="res://.godot/imported/Musique écran d'acceuil.mp3-52c5a471e8ed8104e6b8aa7ebe4fbd92.mp3str"
+
+[deps]
+
+source_file="res://sounds effects/musics/Musique écran d'acceuil.mp3"
+dest_files=["res://.godot/imported/Musique écran d'acceuil.mp3-52c5a471e8ed8104e6b8aa7ebe4fbd92.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
