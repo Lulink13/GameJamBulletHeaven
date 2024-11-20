@@ -18,11 +18,7 @@ var alive = true
 func _ready() -> void:
 	player = get_node("/root/Racine/Joueur")
 	#enemiesNode = get_node("/root/Racine/Enemies")
-<<<<<<< Updated upstream
 	itemNode = get_node("/root/Racine/Items")
-=======
-	#itemNode = get_node("/root/Racine/Items")
->>>>>>> Stashed changes
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -50,12 +46,8 @@ func damage(ammount:int):
 		alive = false
 		died.emit() #TODO
 		var coin:Objet = spawnable.instantiate()
-<<<<<<< Updated upstream
 		itemNode.add_child(coin)
 		coin.position= self.global_position
-=======
-		get_parent().add_child(coin)
->>>>>>> Stashed changes
 		$Hurtbox.queue_free()
 		$AnimatedSprite2D.play("death")
 

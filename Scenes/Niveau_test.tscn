@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dricobr3vv6mk"]
+[gd_scene load_steps=11 format=3 uid="uid://dricobr3vv6mk"]
 
 [ext_resource type="PackedScene" uid="uid://cop73h0esmvdg" path="res://Scenes/scene_joueur.tscn" id="1_6vqqe"]
 [ext_resource type="TileSet" uid="uid://cvqfq42elepfm" path="res://Images/Tiles/test_TileSet.tres" id="1_muoam"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://Scenes/label niveau.gd" id="7_cwqu1"]
 [ext_resource type="Script" path="res://Scenes/label_timer.gd" id="8_57o4n"]
 [ext_resource type="Texture2D" uid="uid://daloij1o1b0ll" path="res://Images/Items/Sword/Sword.png" id="9_o5cvl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2vkb7"]
 
 [node name="Racine" type="Node2D"]
 
@@ -42,7 +44,6 @@ position = Vector2(-28, 96)
 zoom = Vector2(3, 3)
 
 [node name="Items" type="Node" parent="."]
-<<<<<<< Updated upstream
 script = ExtResource("6_g2jgl")
 
 [node name="coin" parent="Items" instance=ExtResource("5_oi7j1")]
@@ -71,17 +72,15 @@ autostart = true
 [node name="Portal" type="Area2D" parent="."]
 position = Vector2(229, 2)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
-
 [node name="Sprite2D" type="Sprite2D" parent="Portal"]
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("9_o5cvl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
+shape = SubResource("RectangleShape2D_2vkb7")
+debug_color = Color(0.992822, 0, 0.246593, 0.42)
 
 [connection signal="died" from="Joueur" to="Spawner" method="_on_joueur_died"]
 [connection signal="died" from="Joueur" to="SpawnerCoin" method="_on_joueur_died"]
 [connection signal="timeout" from="Level_Timer" to="Spawner" method="_on_level_timer_timeout"]
 [connection signal="timeout" from="Level_Timer" to="Label Timer" method="_on_level_timer_timeout"]
-=======
-
-[node name="coin" parent="Items" instance=ExtResource("5_oi7j1")]
->>>>>>> Stashed changes
