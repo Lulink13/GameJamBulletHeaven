@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://8qr068tgyveb"]
 
 [ext_resource type="Texture2D" uid="uid://b5ocwlayimkbm" path="res://Images/Tiles/Spawner.png" id="1_ttnwd"]
-[ext_resource type="Script" path="res://Scripts/spawner.gd" id="2_utibr"]
+[ext_resource type="Script" path="res://Scripts/Ennemis/spawner.gd" id="2_utibr"]
 
 [node name="Spawner" type="Sprite2D"]
 texture = ExtResource("1_ttnwd")

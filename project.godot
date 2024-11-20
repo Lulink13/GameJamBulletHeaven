@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GameJamBulletHeaven"
-run/main_scene="res://Scenes/Niveau_UN.tscn"
+run/main_scene="res://Scenes/Niveaux/Niveau_UN.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://Images/icon.svg"
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0dtwv8tpr64v"]
 
-[ext_resource type="Script" path="res://Scripts/Coin.gd" id="1_vqevy"]
-[ext_resource type="Texture2D" uid="uid://o7377181pb1i" path="res://Images/Tiles/SilverCoinMini.png" id="2_7dpo4"]
+[ext_resource type="Script" path="res://Scripts/LogiqueJeu/Coin.gd" id="1_i1pox"]
+[ext_resource type="Texture2D" uid="uid://o7377181pb1i" path="res://Images/Tiles/SilverCoinMini.png" id="2_p432s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pdvw"]
 size = Vector2(6, 6)
@@ -9,13 +9,13 @@ size = Vector2(6, 6)
 [node name="Coin" type="Area2D"]
 collision_layer = 32
 collision_mask = 17
-script = ExtResource("1_vqevy")
+script = ExtResource("1_i1pox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5pdvw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_7dpo4")
+texture = ExtResource("2_p432s")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

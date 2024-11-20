@@ -1,57 +1,56 @@
-[gd_scene load_steps=19 format=3 uid="uid://bpttjmqifxeje"]
+[gd_scene load_steps=18 format=3 uid="uid://bpttjmqifxeje"]
 
-[ext_resource type="Script" path="res://Scripts/Ennemi.gd" id="1_ak30n"]
-[ext_resource type="Texture2D" uid="uid://ck00cfjdwnjib" path="res://Images/Personnages/rat test.png" id="2_oerm2"]
-[ext_resource type="PackedScene" uid="uid://d0dtwv8tpr64v" path="res://Scenes/coin.tscn" id="2_ywpgl"]
-[ext_resource type="Texture2D" uid="uid://bqbbqila16o1i" path="res://Images/Enemies/Rat/Rat_walk_right.png" id="4_ty5b5"]
-[ext_resource type="Texture2D" uid="uid://bweylh6cc1jop" path="res://Images/Enemies/Rat/Rat_Death_right.png" id="6_ymvnq"]
+[ext_resource type="Script" path="res://Scripts/Ennemis/Ennemi.gd" id="1_xyglr"]
+[ext_resource type="PackedScene" uid="uid://d0dtwv8tpr64v" path="res://Scenes/ContenuNiveaux/coin.tscn" id="2_bvqtq"]
+[ext_resource type="Texture2D" uid="uid://bqbbqila16o1i" path="res://Images/Enemies/Rat/Rat_walk_right.png" id="3_xlqxf"]
+[ext_resource type="Texture2D" uid="uid://bweylh6cc1jop" path="res://Images/Enemies/Rat/Rat_Death_right.png" id="4_waxoi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1pe38"]
 radius = 6.0
 height = 16.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3qcvd"]
-atlas = ExtResource("4_ty5b5")
+atlas = ExtResource("3_xlqxf")
 region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvlsi"]
-atlas = ExtResource("4_ty5b5")
+atlas = ExtResource("3_xlqxf")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uae6l"]
-atlas = ExtResource("4_ty5b5")
+atlas = ExtResource("3_xlqxf")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ui26"]
-atlas = ExtResource("4_ty5b5")
+atlas = ExtResource("3_xlqxf")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r51uv"]
-atlas = ExtResource("4_ty5b5")
+atlas = ExtResource("3_xlqxf")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ox85p"]
-atlas = ExtResource("6_ymvnq")
+atlas = ExtResource("4_waxoi")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x7u4u"]
-atlas = ExtResource("6_ymvnq")
+atlas = ExtResource("4_waxoi")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3so66"]
-atlas = ExtResource("6_ymvnq")
+atlas = ExtResource("4_waxoi")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xy2wk"]
-atlas = ExtResource("6_ymvnq")
+atlas = ExtResource("4_waxoi")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljdw5"]
-atlas = ExtResource("6_ymvnq")
+atlas = ExtResource("4_waxoi")
 region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u52jp"]
-atlas = ExtResource("4_ty5b5")
+atlas = ExtResource("3_xlqxf")
 region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3ox5e"]
@@ -108,13 +107,8 @@ animations = [{
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 11
-script = ExtResource("1_ak30n")
-spawnable = ExtResource("2_ywpgl")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, -12)
-texture = ExtResource("2_oerm2")
+script = ExtResource("1_xyglr")
+spawnable = ExtResource("2_bvqtq")
 
 [node name="Hurtbox" type="CollisionShape2D" parent="."]
 rotation = -1.57079
