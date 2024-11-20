@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://cvqfq42elepfm" path="res://Images/Tiles/test_TileSet.tres" id="1_muoam"]
 [ext_resource type="PackedScene" uid="uid://bpttjmqifxeje" path="res://Scenes/scene_enemy.tscn" id="2_v4brb"]
 [ext_resource type="PackedScene" uid="uid://8qr068tgyveb" path="res://Scenes/scene_spawner.tscn" id="3_spsgt"]
-[ext_resource type="PackedScene" uid="uid://d0dtwv8tpr64v" path="res://Scenes/coin.tscn" id="5_oi7j1"]
+[ext_resource type="PackedScene" path="res://Scenes/coin.tscn" id="5_oi7j1"]
 
 [node name="Racine" type="Node2D"]
 
