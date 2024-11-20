@@ -5,6 +5,8 @@ class_name Projectile
 var speed = 700     # Adjust as needed
 var damage :int
 var direction : Vector2
+var piercing:int
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -17,7 +19,10 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Ennemi:
-		print("ennemi touché!!!")
+		#print("ennemi touché!!!")
 		body.damage(damage)
-		#body.queue_free()
-	$".".queue_free()
+		piercing -= 1
+		if piercing < 0:
+			$".".queue_free()
+	else :
+		$".".queue_free()
