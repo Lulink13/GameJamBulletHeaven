@@ -42,6 +42,7 @@ position = Vector2(-28, 96)
 zoom = Vector2(3, 3)
 
 [node name="Items" type="Node" parent="."]
+<<<<<<< Updated upstream
 script = ExtResource("6_g2jgl")
 
 [node name="coin" parent="Items" instance=ExtResource("5_oi7j1")]
@@ -80,3 +81,7 @@ texture = ExtResource("9_o5cvl")
 [connection signal="died" from="Joueur" to="SpawnerCoin" method="_on_joueur_died"]
 [connection signal="timeout" from="Level_Timer" to="Spawner" method="_on_level_timer_timeout"]
 [connection signal="timeout" from="Level_Timer" to="Label Timer" method="_on_level_timer_timeout"]
+=======
+
+[node name="coin" parent="Items" instance=ExtResource("5_oi7j1")]
+>>>>>>> Stashed changes

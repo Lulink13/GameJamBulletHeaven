@@ -12,7 +12,11 @@ func _ready() -> void:
 	var rng = RandomNumberGenerator.new()
 	tween = get_tree().create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	var movement = Vector2(rng.randf_range(-MAX_SPEED, MAX_SPEED), rng.randf_range(-MAX_SPEED, MAX_SPEED))
+<<<<<<< Updated upstream
 	tween.tween_property(self, "global_position",global_position+movement, 1)
+=======
+	tween.tween_property(self, "position",position+movement, 1)
+>>>>>>> Stashed changes
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
