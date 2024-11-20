@@ -4,7 +4,7 @@ class_name Arme
 # Crossbow properties
 @export var stats : Stats_Arme
 var niveau : int = 0
-var projectile_scene = preload("res://Scenes/scene_arrow.tscn")  # Make sure to create this scene
+@export var projectile_scene : PackedScene
 var enabled = true
 var shoot_cooldown = 0.5  # Time between shots in seconds
 var damage_multiplier = 1      # Adjust as needed
