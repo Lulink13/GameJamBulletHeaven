@@ -26,6 +26,6 @@ penetration_prejectile = 0
 
 [resource]
 script = ExtResource("2_mwl3p")
-nom_arme = "Epé"
+nom_arme = "Epée"
 niveaux = Array[ExtResource("1_0qhrb")]([SubResource("Resource_ihbsk"), SubResource("Resource_st3xk"), SubResource("Resource_s3fll")])
 stat_bonus = 0

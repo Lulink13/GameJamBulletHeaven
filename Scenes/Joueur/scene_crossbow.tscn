@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://cjjeuwcnjg1f5"]
 
-[ext_resource type="Script" path="res://Scripts/Joueur/Arme.gd" id="1_vphsg"]
+[ext_resource type="Script" path="res://Scripts/Joueur/Crossbow.gd" id="1_f4c6a"]
 [ext_resource type="Resource" uid="uid://bs8j35durklah" path="res://Scripts/Ressources/Armes/stats_crossbow.tres" id="2_pk7k4"]
 [ext_resource type="PackedScene" uid="uid://bxk36x20ogbm3" path="res://Scenes/Joueur/scene_arrow.tscn" id="3_eciqe"]
 
 [node name="CrossBow" type="Node2D"]
-script = ExtResource("1_vphsg")
+script = ExtResource("1_f4c6a")
 stats = ExtResource("2_pk7k4")
 projectile_scene = ExtResource("3_eciqe")
 

@@ -1,14 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://dq0fgpt05385k"]
 
-[ext_resource type="Script" path="res://Scripts/Joueur/Arme.gd" id="1_p7lts"]
+[ext_resource type="Script" path="res://Scripts/Joueur/Sword.gd" id="1_xan0i"]
 [ext_resource type="Resource" uid="uid://cjbicftic4063" path="res://Scripts/Ressources/Armes/stats_sword.tres" id="2_1yust"]
-
-[sub_resource type="PackedScene" id="PackedScene_47p5a"]
+[ext_resource type="PackedScene" uid="uid://hxif6bblhhsh" path="res://Scenes/Joueur/scene_swordslash.tscn" id="3_cfdbf"]
 
 [node name="Sword" type="Node2D"]
-script = ExtResource("1_p7lts")
+script = ExtResource("1_xan0i")
 stats = ExtResource("2_1yust")
-projectile_scene = SubResource("PackedScene_47p5a")
+projectile_scene = ExtResource("3_cfdbf")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

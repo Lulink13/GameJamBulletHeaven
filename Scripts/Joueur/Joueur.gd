@@ -94,6 +94,7 @@ func collect_xp(ammount:int):
 		print("LEVEL UP!")
 		next_xp *= xp_curve
 		$CrossBow.level_up()
+		$Sword.level_up()
 
 func _on_invuln_timer_timeout() -> void:
 	invuln = false

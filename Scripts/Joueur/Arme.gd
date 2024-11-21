@@ -8,6 +8,7 @@ class_name  Arme
 var niveau : int = 0
 var shoot_cooldown = 0.5  # Time between shots in seconds
 var damage_multiplier = 1      # Adjust as needed
+var range_multiplier = 1
 var piercing = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -23,12 +24,13 @@ func _process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	if enabled:
 		var attack : Area2D = projectile_scene.instantiate()
-		get_node("/root/Racine/Projectiles").add_child(attack)
+		#get_node("/root/Racine/Projectiles").add_child(attack)
 		
 		attack.global_position = global_position
 		attack.direction = get_node("../").aim
 		attack.rotation = get_node("../").aim.angle()
 		attack.damage = int(get_node("../").attack * damage_multiplier)
+		attack.scale = range_multiplier
 		#attack.piercing = piercing
 
 func level_up() :
@@ -41,6 +43,7 @@ func set_level(level:int) :
 	shoot_cooldown = new_stats.cooldown
 	$Timer.wait_time= shoot_cooldown
 	damage_multiplier = new_stats.multiplicateur_degats
+	range_multiplier = new_stats.multiplicateur_portée
 	#piercing = new_stats.penetration_prejectile
 
 func _on_joueur_died() -> void:
