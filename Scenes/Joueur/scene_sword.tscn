@@ -1,11 +1,14 @@
-[gd_scene format=3 uid="uid://dq0fgpt05385k"]
+[gd_scene load_steps=4 format=3 uid="uid://dq0fgpt05385k"]
+
+[ext_resource type="Script" path="res://Scripts/Joueur/Arme.gd" id="1_p7lts"]
+[ext_resource type="Resource" uid="uid://cjbicftic4063" path="res://Scripts/Ressources/Armes/stats_sword.tres" id="2_1yust"]
+
+[sub_resource type="PackedScene" id="PackedScene_47p5a"]
 
 [node name="Sword" type="Node2D"]
+script = ExtResource("1_p7lts")
+stats = ExtResource("2_1yust")
+projectile_scene = SubResource("PackedScene_47p5a")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="Line2D" type="Line2D" parent="."]
-points = PackedVector2Array(0, 0, 0, 0)
