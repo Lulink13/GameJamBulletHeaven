@@ -9,12 +9,12 @@ func _ready():
 func _on_start_button_pressed() -> void:
 	# Replace with your scene transition logic
 	print("Start Game pressed")
-	get_tree().change_scene_to_file("res://Scenes/SelectCharacter.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Menus/SelectCharacter.tscn")
 
 func _on_options_button_pressed() -> void:
 	# Open options menu logic
 	print("Options pressed")
-	get_tree().change_scene_to_file("res://Scenes/OptionsMenu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Menus/OptionsMenu.tscn")
 
 
 func _on_exit_button_pressed() -> void:

@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://co6pnwtfv8dpx"]
+[gd_scene load_steps=6 format=3 uid="uid://co6pnwtfv8dpx"]
 
-[ext_resource type="Script" path="res://Scripts/Menus/SelectCharacter.gd" id="1_82fg5"]
+[ext_resource type="Script" path="res://Scripts/SelectCharacter.gd" id="1_82fg5"]
+[ext_resource type="Texture2D" uid="uid://464rfwyyolqd" path="res://Images/Characters/Dark_elf/Dark_elf_static-removebg-preview.png" id="2_6t4y7"]
+[ext_resource type="Texture2D" uid="uid://4dsauw6fgf1f" path="res://Images/Characters/Dark_elf/Dark_elf_idle_down.png" id="2_dgpdo"]
+[ext_resource type="Texture2D" uid="uid://doca74dqrir71" path="res://Images/Tiles/UI/Menu/Exit1.png" id="2_tmn5u"]
+[ext_resource type="Script" path="res://Scripts/dark_elf_button.gd" id="9_mbc7l"]
 
 [node name="SelectCharacter" type="Control"]
 layout_mode = 3
@@ -25,23 +29,30 @@ offset_bottom = 50.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="FighterButton" type="Button" parent="VBoxContainer"]
+[node name="DarkElfButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Fighter"
+action_mode = 0
+icon = ExtResource("2_6t4y7")
+flat = true
+script = ExtResource("9_mbc7l")
 
 [node name="KnightButton" type="Button" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
-text = "Knight"
+icon = ExtResource("2_dgpdo")
 
 [node name="ElfButton" type="Button" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Elf"
+icon = ExtResource("2_dgpdo")
 
 [node name="BackButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Back to main"
+icon = ExtResource("2_tmn5u")
+flat = true
 
-[connection signal="pressed" from="VBoxContainer/FighterButton" to="." method="_on_fighter_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/DarkElfButton" to="." method="_on_dark_elf_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/KnightButton" to="." method="_on_knight_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ElfButton" to="." method="_on_elf_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

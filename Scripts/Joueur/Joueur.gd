@@ -22,6 +22,16 @@ var alive = true
 
 var attack : int = 1
 
+func show_end_game() -> void:
+	# Instance the end game scene
+	var end_game_scene = preload("res://Scenes/Menus/EndGame.tscn").instantiate()
+
+	# Add it as a child of the current scene
+	add_child(end_game_scene)
+
+	# Make sure it appears on top
+	end_game_scene.z_index = 100
+
 func _physics_process(delta):
 	if not alive : return
 

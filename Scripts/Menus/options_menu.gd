@@ -18,7 +18,7 @@ func _on_back_button_pressed() -> void:
 	if $ClickSound:
 		$ClickSound.play()
 	# Change to the main menu scene
-	get_tree().change_scene_to_file("res://Scenes/StartMenu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Menus/StartMenu.tscn")
 
 
 
