@@ -1,8 +1,7 @@
 extends Area2D
-class_name Projectile
 
 # Arrow properties
-var speed = 700     # Adjust as needed
+#var speed = 700     # Adjust as needed
 var damage :int
 var direction : Vector2
 var piercing:int
@@ -14,8 +13,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var velocity = speed * delta * direction
-	position += velocity
+	#var velocity = speed * delta * direction
+	#position += velocity
+	pass
 
 func _on_body_entered(body: Node2D) -> void:
 	#print(body)
@@ -23,8 +23,12 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Ennemi:
 		#print("ennemi touché!!!")
 		body.damage(damage)
-		piercing -= 1
-		if piercing < 0:
-			$".".queue_free()
-	else :
-		$".".queue_free()
+		#piercing -= 1
+		#if piercing < 0:
+			#$".".queue_free()
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	print(scale)
+	$".".queue_free()
+	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cop73h0esmvdg"]
+[gd_scene load_steps=44 format=3 uid="uid://cop73h0esmvdg"]
 
 [ext_resource type="Script" path="res://Scripts/Joueur/Joueur.gd" id="1_i4xdb"]
 [ext_resource type="PackedScene" uid="uid://cjjeuwcnjg1f5" path="res://Scenes/Joueur/scene_crossbow.tscn" id="3_dddkc"]
@@ -8,9 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cviyvcsmhmef6" path="res://Images/Characters/Dark_elf/Dark_elf_walk_left.png" id="5_dspe0"]
 [ext_resource type="Texture2D" uid="uid://bii18v32yapw1" path="res://Images/Characters/Dark_elf/Dark_elf_walk_right.png" id="6_21ht4"]
 [ext_resource type="Texture2D" uid="uid://dewqgj48aego7" path="res://Images/Characters/Dark_elf/Dark_elf_walk_up.png" id="7_783lp"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_s8dhf"]
-radius = 5.09902
+[ext_resource type="PackedScene" uid="uid://dq0fgpt05385k" path="res://Scenes/Joueur/scene_sword.tscn" id="9_66es1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mlss0"]
 atlas = ExtResource("3_inlak")
@@ -262,6 +260,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_s8dhf"]
+radius = 5.09902
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_p4n8s"]
 radius = 22.0227
 
@@ -269,18 +270,16 @@ radius = 22.0227
 collision_mask = 8
 script = ExtResource("1_i4xdb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_s8dhf")
-
-[node name="InvulnTimer" type="Timer" parent="."]
-
-[node name="CrossBow" parent="." instance=ExtResource("3_dddkc")]
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_g536r")
 animation = &"Idle"
 autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_s8dhf")
+
+[node name="InvulnTimer" type="Timer" parent="."]
 
 [node name="CoinVaccum" type="Area2D" parent="."]
 collision_layer = 16
@@ -290,5 +289,10 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_p4n8s")
 debug_color = Color(0.5094, 0.573541, 0.211127, 0.42)
 
+[node name="CrossBow" parent="." instance=ExtResource("3_dddkc")]
+
+[node name="Sword" parent="." instance=ExtResource("9_66es1")]
+
 [connection signal="died" from="." to="CrossBow" method="_on_joueur_died"]
+[connection signal="died" from="." to="Sword" method="_on_joueur_died"]
 [connection signal="timeout" from="InvulnTimer" to="." method="_on_invuln_timer_timeout"]

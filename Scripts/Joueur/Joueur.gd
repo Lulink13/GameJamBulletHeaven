@@ -35,9 +35,9 @@ func show_end_game() -> void:
 func _physics_process(delta):
 	if not alive : return
 
-	var direction = Vector2(Input.get_axis("ui_left", "ui_right"), Input.get_axis("ui_up", "ui_down")).normalized()
-	
-	#var direction = Vector2(Input.get_joy_axis())
+	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	#var direction = Vector2(Input.get_axis("ui_left", "ui_right"), Input.get_axis("ui_up", "ui_down")).normalized()
+	#print(direction)
 	
 	if direction!= Vector2(0,0) :
 		if abs(direction.x) > abs(direction.y):
@@ -94,6 +94,7 @@ func collect_xp(ammount:int):
 		print("LEVEL UP!")
 		next_xp *= xp_curve
 		$CrossBow.level_up()
+		$Sword.level_up()
 
 func _on_invuln_timer_timeout() -> void:
 	invuln = false
