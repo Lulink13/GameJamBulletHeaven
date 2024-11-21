@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkdib7wbfb2oc"]
+
+[ext_resource type="Texture2D" uid="uid://m1tngi1oh77l" path="res://Images/Tiles/torch animation0.png" id="1_nhewn"]
+[ext_resource type="Texture2D" uid="uid://bgeaokdnavec4" path="res://Images/Tiles/torch animation1.png" id="2_5gvqi"]
+[ext_resource type="Texture2D" uid="uid://b4kt86x2p0x34" path="res://Images/Tiles/torch animation2.png" id="3_qw06w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8s7xl"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nhewn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5gvqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qw06w")
+}],
+"loop": true,
+"name": &"torch",
+"speed": 7.0
+}]
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D"]
+position = Vector2(53, -11)
+sprite_frames = SubResource("SpriteFrames_8s7xl")
+animation = &"torch"
+autoplay = "torch"
+frame_progress = 0.246275

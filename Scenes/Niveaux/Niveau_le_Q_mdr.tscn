@@ -1,0 +1,211 @@
+[gd_scene load_steps=27 format=3 uid="uid://cbon4obyac528"]
+
+[ext_resource type="Script" path="res://Scripts/LogiqueJeu/niveau_test.gd" id="1_3dmdi"]
+[ext_resource type="TileSet" uid="uid://cvqfq42elepfm" path="res://Images/Tiles/test_TileSet.tres" id="2_0x5aj"]
+[ext_resource type="PackedScene" uid="uid://cop73h0esmvdg" path="res://Scenes/Joueur/scene_joueur.tscn" id="3_es5lc"]
+[ext_resource type="PackedScene" uid="uid://8qr068tgyveb" path="res://Scenes/ContenuNiveaux/scene_spawner.tscn" id="4_uoil2"]
+[ext_resource type="PackedScene" uid="uid://bpttjmqifxeje" path="res://Scenes/ContenuNiveaux/scene_enemy.tscn" id="5_wpbqr"]
+[ext_resource type="PackedScene" uid="uid://d0dtwv8tpr64v" path="res://Scenes/ContenuNiveaux/coin.tscn" id="6_3fxgb"]
+[ext_resource type="Script" path="res://Scripts/LogiqueJeu/Items_Node.gd" id="7_e5vti"]
+[ext_resource type="Script" path="res://Scripts/LogiqueJeu/label niveau.gd" id="8_34tx5"]
+[ext_resource type="Script" path="res://Scripts/LogiqueJeu/label_timer.gd" id="9_mqgg0"]
+[ext_resource type="Script" path="res://Scripts/LogiqueJeu/portal.gd" id="10_ri2k4"]
+[ext_resource type="Texture2D" uid="uid://cm2w76ievlnol" path="res://Images/Tiles/P001_nyknck.png" id="11_ggquo"]
+[ext_resource type="Texture2D" uid="uid://m1tngi1oh77l" path="res://Images/Tiles/torch animation0.png" id="12_fcpjv"]
+[ext_resource type="Texture2D" uid="uid://bgeaokdnavec4" path="res://Images/Tiles/torch animation1.png" id="13_p5vfo"]
+[ext_resource type="Texture2D" uid="uid://b4kt86x2p0x34" path="res://Images/Tiles/torch animation2.png" id="14_bnc3x"]
+[ext_resource type="PackedScene" uid="uid://bkdib7wbfb2oc" path="res://Scenes/ContenuNiveaux/torch_ki_brul.tscn" id="15_gk5di"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6a16"]
+atlas = ExtResource("11_ggquo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jism0"]
+atlas = ExtResource("11_ggquo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ai4lo"]
+atlas = ExtResource("11_ggquo")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_laoa0"]
+atlas = ExtResource("11_ggquo")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vn86c"]
+atlas = ExtResource("11_ggquo")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kjbj"]
+atlas = ExtResource("11_ggquo")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkd30"]
+atlas = ExtResource("11_ggquo")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_771f0"]
+atlas = ExtResource("11_ggquo")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vqxp1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6a16")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jism0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ai4lo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_laoa0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vn86c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kjbj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkd30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_771f0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2vkb7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8s7xl"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_fcpjv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_p5vfo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_bnc3x")
+}],
+"loop": true,
+"name": &"torch",
+"speed": 7.0
+}]
+
+[node name="Racine" type="Node2D"]
+script = ExtResource("1_3dmdi")
+
+[node name="TileMap" type="TileMap" parent="."]
+rotation = -3.13411
+tile_set = ExtResource("2_0x5aj")
+collision_visibility_mode = 1
+format = 2
+layer_0/tile_data = PackedInt32Array(-327689, 196612, 7, -327688, 65540, 7, -327687, 65540, 7, -327686, 262148, 7, -327685, 262148, 7, -327684, 65540, 7, -327683, 262148, 7, -327682, 196612, 7, -327681, 196612, 7, -393216, 65540, 7, -393215, 65540, 7, -393214, 131076, 7, -393213, 196612, 7, -393212, 196612, 7, -393211, 262148, 7, -393210, 262148, 7, -393209, 131076, 7, -393208, 262148, 7, -196616, 196611, 1, -131080, 3, 0, -65544, 131075, 1, -8, 131075, 2, 65528, 65539, 2, 131064, 131075, 1, 196600, 131075, 1, 262136, 131075, 1, -196615, 196611, 3, -131079, 196611, 1, -65543, 65539, 0, -7, 131075, 0, 65529, 65539, 3, 131065, 131075, 1, 196601, 131075, 1, 262137, 131075, 1, -196614, 196611, 0, -131078, 65539, 2, -65542, 196611, 3, -6, 196611, 0, 65530, 131075, 0, 131066, 65539, 2, 196602, 196611, 3, 262138, 131075, 1, -196613, 196611, 2, -131077, 3, 3, -65541, 131075, 1, -5, 131075, 1, 65531, 131075, 1, 131067, 131075, 1, 196603, 3, 2, 262139, 131075, 1, -196612, 196612, 4, -131076, 196612, 4, -4, 131075, 1, 65532, 196612, 4, 131068, 196612, 4, 196604, 196612, 4, 262140, 196612, 4, -196611, 65539, 0, -131075, 131075, 1, -65539, 196612, 4, -3, 131075, 1, 65533, 196612, 4, 131069, 131075, 1, 196605, 65539, 0, 262141, 3, 2, -196610, 131075, 1, -131074, 131075, 1, -65538, 196612, 4, -2, 131075, 1, 131070, 131075, 0, 196606, 196611, 0, 262142, 131075, 3, -196609, 131075, 1, -1, 131075, 1, 65535, 65539, 1, 131071, 3, 2, 196607, 196611, 2, 262143, 131075, 0, -262144, 131075, 1, -196608, 131075, 1, -65536, 131075, 1, 0, 131075, 1, 65536, 131075, 1, 131072, 196611, 3, 196608, 196611, 2, -262143, 131075, 1, -196607, 196611, 3, -131071, 3, 2, -65535, 3, 2, 1, 3, 2, 65537, 131075, 1, 131073, 65539, 3, 196609, 3, 0, -262142, 65539, 2, -196606, 196611, 1, -131070, 65539, 2, -65534, 65539, 1, 2, 65539, 1, 65538, 65539, 1, 131074, 65539, 2, 196610, 65539, 2, -262141, 3, 0, -196605, 196611, 0, -131069, 131075, 3, -65533, 131075, 0, 3, 65539, 1, 65539, 3, 2, 131075, 131075, 2, 196611, 196611, 3, -262140, 196611, 1, -196604, 3, 2, -131068, 131075, 2, -65532, 196611, 3, 4, 196612, 4, 65540, 196611, 2, 131076, 65539, 3, 196612, 131075, 1, -262139, 65539, 3, -196603, 196612, 4, -131067, 131075, 3, -65531, 65539, 3, 5, 196612, 4, 65541, 131075, 2, 131077, 196612, 4, 196613, 196612, 4, -262138, 196612, 4, -196602, 196612, 4, -131066, 196611, 0, -65530, 65539, 1, 6, 196612, 4, 65542, 196612, 4, 131078, 196612, 4, 196614, 131075, 1, -262137, 131075, 1, -196601, 131075, 0, -131065, 196611, 0, -65529, 131075, 1, 7, 65539, 3, 65543, 131075, 1, 131079, 131075, 1, 196615, 131075, 1, -262153, 196612, 4, -196617, 196612, 4, -131081, 196612, 4, -65545, 196612, 4, -9, 196612, 4, 65527, 196612, 4, 131063, 196612, 4, 196599, 196612, 4, 262135, 196612, 4, 327671, 196612, 4, -262152, 196612, 7, 327672, 196612, 4, -262151, 262148, 7, 327673, 196612, 4, -262150, 65540, 7, 327674, 196612, 4, -262149, 131076, 7, 327675, 196612, 4, -262148, 196612, 7, 327676, 196612, 4, -262147, 65540, 7, 327677, 196612, 4, -262146, 131076, 7, 327678, 196612, 4, -262145, 262148, 7, 327679, 196612, 4, -327680, 131076, 7, 262144, 196612, 4, -327679, 65540, 7, 262145, 196612, 4, -327678, 131076, 7, 262146, 196612, 4, -327677, 196612, 7, 262147, 196612, 4, -327676, 65540, 7, 262148, 196612, 4, -327675, 131076, 7, 262149, 196612, 4, -327674, 262148, 7, 262150, 196612, 4, -327673, 262148, 7, 262151, 196612, 4, -327672, 196612, 4, -262136, 196612, 4, -196600, 196612, 4, -131064, 196612, 4, -65528, 196612, 4, 8, 196612, 4, 65544, 196612, 4, 131080, 196612, 4, 196616, 196612, 4, 262152, 196612, 4, -65540, 196612, 4, -131072, 3, 2, -131056, 131075, 1, -65520, 131075, 1, 16, 131075, 1, 65552, 131075, 1, 131088, 131075, 1, -131055, 131075, 1, -65519, 131075, 1, 17, 131075, 1, 65553, 131075, 1, 131089, 131075, 1, -65537, 3, 2, -131073, 3, 2, 65534, 196612, 4)
+layer_1/name = "Layer1"
+layer_1/tile_data = PackedInt32Array(-262153, 262148, 1, -196617, 196612, 2, -131081, 196612, 2, -65545, 196612, 2, -9, 196612, 2, 65527, 196612, 2, 131063, 196612, 2, 196599, 196612, 2, 262135, 196612, 2, -262152, 393220, 1, -196616, 393220, 2, -131080, 1, 1, -65544, 1, 1, -8, 1, 1, 65528, 1, 1, 131064, 1, 1, 196600, 1, 1, -262151, 393220, 1, -196615, 393220, 2, -262150, 393220, 1, -196614, 393220, 2, -262149, 393220, 6, -196613, 393220, 7, -262148, 393220, 1, -196612, 393220, 2, -262147, 393220, 1, -196611, 393220, 2, -262146, 393220, 6, -196610, 393220, 7, -262145, 393220, 1, -196609, 393220, 2, -327680, 393220, 1, -262144, 393220, 2, -327679, 393220, 6, -262143, 393220, 7, -327678, 393220, 1, -262142, 393220, 2, -327677, 393220, 1, -262141, 393220, 2, -327676, 393220, 6, -262140, 393220, 7, -327675, 393220, 1, -262139, 393220, 2, -327674, 393220, 1, -262138, 393220, 2, -327673, 458756, 1, -262137, 393220, 2, -196601, 131073, 1, -131065, 131073, 1, -65529, 131073, 1, 7, 131073, 1, 65543, 131073, 1, 131079, 131073, 1, -327672, 524292, 1, -262136, 65540, 2, -196600, 65540, 2, -131064, 65540, 2, -65528, 65540, 2, 8, 65540, 2, 65544, 65540, 2, 131080, 65540, 2, 196616, 65540, 2, 327672, 131076, 3, 327673, 131076, 3, 327674, 131076, 3, 327675, 131076, 3, 327676, 131076, 3, 327677, 131076, 3, 327678, 131076, 3, 327679, 131076, 3, 262144, 131076, 3, 262145, 131076, 3, 262146, 131076, 3, 262147, 131076, 3, 262148, 131076, 3, 262149, 131076, 3, 262150, 131076, 3, 262151, 131076, 3, 262152, 196612, 3, 327671, 65540, 3, 262136, 1, 1, 196615, 131073, 1)
+
+[node name="Joueur" parent="." instance=ExtResource("3_es5lc")]
+position = Vector2(-233, -102)
+
+[node name="Spawner" parent="." instance=ExtResource("4_uoil2")]
+position = Vector2(213, -43)
+spawnable = ExtResource("5_wpbqr")
+
+[node name="Spawner" parent="Spawner" instance=ExtResource("4_uoil2")]
+position = Vector2(-269, 8)
+spawnable = ExtResource("5_wpbqr")
+
+[node name="SpawnerCoin" parent="." instance=ExtResource("4_uoil2")]
+position = Vector2(-143, 47)
+spawnable = ExtResource("6_3fxgb")
+spawnCooldown = 0.5
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("5_wpbqr")]
+position = Vector2(-28, 96)
+
+[node name="Projectiles" type="Node" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="Items" type="Node" parent="."]
+script = ExtResource("7_e5vti")
+
+[node name="coin" parent="Items" instance=ExtResource("6_3fxgb")]
+position = Vector2(63, 83)
+
+[node name="Label LV XP" type="Label" parent="."]
+offset_left = -253.0
+offset_top = -147.0
+offset_right = -213.0
+offset_bottom = -124.0
+script = ExtResource("8_34tx5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label Timer" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -135.0
+offset_right = 20.0
+offset_bottom = -112.0
+horizontal_alignment = 1
+script = ExtResource("9_mqgg0")
+metadata/_edit_use_anchors_ = true
+
+[node name="Level_Timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[node name="Portal" type="Area2D" parent="."]
+position = Vector2(229, 2)
+collision_layer = 64
+monitoring = false
+monitorable = false
+script = ExtResource("10_ri2k4")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Portal"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_vqxp1")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
+shape = SubResource("RectangleShape2D_2vkb7")
+debug_color = Color(0.992822, 0, 0.246593, 0.42)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(53, -11)
+sprite_frames = SubResource("SpriteFrames_8s7xl")
+animation = &"torch"
+autoplay = "torch"
+frame_progress = 0.822896
+
+[node name="AnimatedSprite2D2" parent="." instance=ExtResource("15_gk5di")]
+position = Vector2(-488, -55)
+scale = Vector2(3.0625, 1)
+
+[node name="AnimatedSprite2D3" parent="." instance=ExtResource("15_gk5di")]
+position = Vector2(-140, -13)
+frame_progress = 0.582317
+
+[connection signal="winnerIsYou" from="." to="Portal" method="_on_racine_winner_is_you"]
+[connection signal="died" from="Joueur" to="Spawner" method="_on_joueur_died"]
+[connection signal="died" from="Joueur" to="SpawnerCoin" method="_on_joueur_died"]
+[connection signal="timeout" from="Level_Timer" to="." method="_on_level_timer_timeout"]
+[connection signal="timeout" from="Level_Timer" to="Spawner" method="_on_level_timer_timeout"]
+[connection signal="timeout" from="Level_Timer" to="Label Timer" method="_on_level_timer_timeout"]
+[connection signal="timeout" from="Level_Timer" to="Portal" method="_on_level_timer_timeout"]
+[connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
