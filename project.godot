@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GameJamBulletHeaven"
-run/main_scene="res://Scenes/Niveaux/Niveau_UN.tscn"
+run/main_scene="res://Scenes/Menus/StartMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://Images/icon.svg"
 
@@ -19,6 +19,12 @@ config/icon="res://Images/icon.svg"
 
 window/size/viewport_width=1600
 window/size/viewport_height=900
+
+[importer_defaults]
+
+animation_library={
+"import_script/path": "res://Scripts/Ressources/Global.gd"
+}
 
 [layer_names]
 

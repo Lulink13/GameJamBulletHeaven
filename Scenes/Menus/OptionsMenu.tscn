@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b54fn4jtlsqdq"]
+[gd_scene load_steps=3 format=3 uid="uid://b54fn4jtlsqdq"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/options_menu.gd" id="1_tg642"]
+[ext_resource type="Texture2D" uid="uid://qje1ewiubno" path="res://Images/Tiles/UI/Menu/Exit1.png" id="2_3ghfv"]
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -31,7 +32,8 @@ text = "Sound"
 
 [node name="BackButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Back to main"
+icon = ExtResource("2_3ghfv")
+flat = true
 
 [connection signal="toggled" from="VBoxContainer/SoundCheckButton" to="." method="_on_sound_check_button_toggled"]
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

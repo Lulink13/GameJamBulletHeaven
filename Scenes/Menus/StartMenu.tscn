@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dv18lk1cvq0lk"]
 
-[ext_resource type="Script" path="res://Scripts/StartMenu.gd" id="1_sdkrr"]
-[ext_resource type="Texture2D" uid="uid://xf8t0g1j4sl8" path="res://Images/Tiles/UI/Menu/Play1.png" id="2_fqsld"]
-[ext_resource type="Texture2D" uid="uid://dy3imvuo4b1is" path="res://Images/Tiles/UI/Menu/Options1.png" id="3_8jwo5"]
-[ext_resource type="Texture2D" uid="uid://doca74dqrir71" path="res://Images/Tiles/UI/Menu/Exit1.png" id="4_ls4aq"]
+[ext_resource type="Script" path="res://Scripts/Menus/StartMenu.gd" id="1_sdkrr"]
+[ext_resource type="Texture2D" uid="uid://d4kgmxjfha0sq" path="res://Images/Tiles/UI/Menu/Play1.png" id="2_fqsld"]
+[ext_resource type="Texture2D" uid="uid://c2yhkbnnwnkjb" path="res://Images/Tiles/UI/Menu/Options1.png" id="3_8jwo5"]
+[ext_resource type="Texture2D" uid="uid://qje1ewiubno" path="res://Images/Tiles/UI/Menu/Exit1.png" id="4_ls4aq"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
