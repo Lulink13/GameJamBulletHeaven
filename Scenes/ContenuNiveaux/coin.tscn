@@ -15,6 +15,7 @@ script = ExtResource("1_i1pox")
 shape = SubResource("RectangleShape2D_5pdvw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
 texture = ExtResource("2_p432s")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

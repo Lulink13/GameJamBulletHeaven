@@ -1,5 +1,7 @@
 extends Area2D
+signal next_level
 
+@export var level_id:int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,10 +12,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
-
 func _on_body_entered(body: Node2D) -> void:
-	get_tree().change_scene_to_file("res://Scenes/Niveaux/Niveau_deux.tscn")
+	if body is Joueur:
+		next_level.emit(level_id)
 	pass # Replace with function body.
 
 

@@ -11,8 +11,11 @@ var damage_multiplier = 1      # Adjust as needed
 var range_multiplier = 1
 var piercing = 0
 
+var projectile_node : Node
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	projectile_node = get_node("/root/Racine/Niveau/Projectiles")
 	set_level(0) 
 	pass # Replace with function body.
 

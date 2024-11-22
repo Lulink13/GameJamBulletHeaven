@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://co6pnwtfv8dpx"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/SelectCharacter.gd" id="1_82fg5"]
-[ext_resource type="Texture2D" uid="uid://dxwv2ok710iva" path="res://Images/Characters/Dark_elf/Dark_elf_static-removebg-preview.png" id="2_6t4y7"]
+[ext_resource type="Texture2D" uid="uid://nqb4a5k0ite7" path="res://Images/Characters/Dark_elf/Dark_elf_static-removebg-preview.png" id="2_6t4y7"]
 [ext_resource type="Texture2D" uid="uid://4dsauw6fgf1f" path="res://Images/Characters/Dark_elf/Dark_elf_idle_down.png" id="2_dgpdo"]
 [ext_resource type="Texture2D" uid="uid://qje1ewiubno" path="res://Images/Tiles/UI/Menu/Exit1.png" id="2_tmn5u"]
 
@@ -49,6 +49,10 @@ icon = ExtResource("2_dgpdo")
 layout_mode = 2
 icon = ExtResource("2_tmn5u")
 flat = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(800, 450)
+zoom = Vector2(3, 3)
 
 [connection signal="pressed" from="VBoxContainer/DarkElfButton" to="." method="_on_dark_elf_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/KnightButton" to="." method="_on_knight_button_pressed"]

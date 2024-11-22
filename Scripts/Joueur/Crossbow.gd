@@ -3,7 +3,7 @@ extends Arme
 func _on_timer_timeout() -> void:
 	if enabled:
 		var arrow : Area2D = projectile_scene.instantiate()
-		get_node("/root/Racine/Projectiles").add_child(arrow)
+		get_parent().add_child(arrow)
 		
 		arrow.global_position = global_position
 		arrow.direction = get_node("../").aim
