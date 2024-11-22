@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Joueur
 
 signal died
+signal levelUP
 
 @export var xp_curve : float = 1.3
 
@@ -81,6 +82,7 @@ func damage(ammount:int):
 			$CoinVaccum.monitorable = false
 			alive = false
 			died.emit()
+			get_tree().call_group("Spawner", "disable")
 		else : 
 			invuln = true
 			$InvulnTimer.start()
@@ -91,7 +93,8 @@ func collect_xp(ammount:int):
 	if xp >= next_xp :
 		xp -= next_xp
 		level+=1
-		print("LEVEL UP!")
+		#print("LEVEL UP!")
+		levelUP.emit(level)
 		next_xp *= xp_curve
 		$CrossBow.level_up()
 		$Sword.level_up()

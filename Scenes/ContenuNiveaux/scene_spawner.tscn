@@ -3,13 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://b5ocwlayimkbm" path="res://Images/Tiles/Spawner.png" id="1_ttnwd"]
 [ext_resource type="Script" path="res://Scripts/Ennemis/spawner.gd" id="2_utibr"]
 
-[node name="Spawner" type="Sprite2D"]
+[node name="Spawner" type="Sprite2D" groups=["Spawner"]]
+y_sort_enabled = true
 texture = ExtResource("1_ttnwd")
 script = ExtResource("2_utibr")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
+wait_time = 1.5
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

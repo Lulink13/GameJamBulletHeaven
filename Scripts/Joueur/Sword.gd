@@ -2,10 +2,9 @@ extends Arme
 
 func _on_timer_timeout() -> void:
 	if enabled:
-		print(niveau)
+		#print(niveau)
 		var attack : Area2D = projectile_scene.instantiate()
 		add_child(attack)
-		#get_node("/root/Racine/Projectiles").add_child(attack)
 		
 		attack.global_position = global_position
 		attack.direction = get_node("../").aim

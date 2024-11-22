@@ -266,11 +266,14 @@ radius = 5.09902
 [sub_resource type="CircleShape2D" id="CircleShape2D_p4n8s"]
 radius = 22.0227
 
-[node name="Joueur" type="CharacterBody2D"]
+[node name="Joueur" type="CharacterBody2D" groups=["Joueur"]]
+z_index = 1
 collision_mask = 8
+motion_mode = 1
 script = ExtResource("1_i4xdb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_g536r")
 animation = &"Idle"
@@ -290,6 +293,7 @@ shape = SubResource("CircleShape2D_p4n8s")
 debug_color = Color(0.5094, 0.573541, 0.211127, 0.42)
 
 [node name="CrossBow" parent="." instance=ExtResource("3_dddkc")]
+z_index = 1
 
 [node name="Sword" parent="." instance=ExtResource("9_66es1")]
 

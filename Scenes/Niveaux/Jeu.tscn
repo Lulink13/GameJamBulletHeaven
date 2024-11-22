@@ -1,0 +1,23 @@
+[gd_scene load_steps=7 format=3 uid="uid://bm86xw8pl2mlg"]
+
+[ext_resource type="Script" path="res://Scripts/LogiqueJeu/jeu.gd" id="1_jfgx3"]
+[ext_resource type="PackedScene" uid="uid://bb7ey2tqrohc8" path="res://Scenes/Niveaux/Niveau_un.tscn" id="2_7drv5"]
+[ext_resource type="FontFile" uid="uid://cukbk04wlsnnk" path="res://Images/Fonts/VCR_OSD_MONO_1.001.ttf" id="2_80j63"]
+[ext_resource type="PackedScene" uid="uid://dricobr3vv6mk" path="res://Scenes/Niveaux/Niveau_deux.tscn" id="3_bc3cc"]
+[ext_resource type="PackedScene" uid="uid://cop73h0esmvdg" path="res://Scenes/Joueur/scene_joueur.tscn" id="3_xlibo"]
+[ext_resource type="Script" path="res://Scripts/LogiqueJeu/label niveau.gd" id="8_xksqj"]
+
+[node name="Racine" type="Node2D"]
+script = ExtResource("1_jfgx3")
+levels = Array[PackedScene]([ExtResource("2_7drv5"), ExtResource("3_bc3cc")])
+
+[node name="Joueur" parent="." instance=ExtResource("3_xlibo")]
+
+[node name="Label LV XP" type="Label" parent="."]
+top_level = true
+offset_left = -253.0
+offset_top = -147.0
+offset_right = -213.0
+offset_bottom = -124.0
+theme_override_fonts/font = ExtResource("2_80j63")
+script = ExtResource("8_xksqj")
