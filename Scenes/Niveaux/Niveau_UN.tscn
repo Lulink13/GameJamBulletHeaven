@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bb7ey2tqrohc8"]
+[gd_scene load_steps=24 format=3 uid="uid://bb7ey2tqrohc8"]
 
 [ext_resource type="Script" path="res://Scripts/LogiqueJeu/niveau_un.gd" id="1_m0o0r"]
 [ext_resource type="TileSet" uid="uid://cvqfq42elepfm" path="res://Images/Tiles/test_TileSet.tres" id="2_tiu5e"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Scripts/LogiqueJeu/portal.gd" id="10_cn2j7"]
 [ext_resource type="Texture2D" uid="uid://cm2w76ievlnol" path="res://Images/Tiles/P001_nyknck.png" id="11_h22l3"]
 [ext_resource type="PackedScene" uid="uid://cx3tvm5jk4c2p" path="res://Scenes/Menus/EndGame.tscn" id="12_a4sfh"]
+[ext_resource type="PackedScene" uid="uid://7dgu2j2d2n0m" path="res://Scenes/Menus/HealthBar.tscn" id="14_0u6et"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d6a16"]
 atlas = ExtResource("11_h22l3")
@@ -156,9 +157,16 @@ debug_color = Color(0.992822, 0, 0.246593, 0.42)
 [node name="EndGame" parent="." instance=ExtResource("12_a4sfh")]
 visible = false
 
+[node name="HealthBar" parent="." instance=ExtResource("14_0u6et")]
+offset_left = 218.0
+offset_top = -142.0
+offset_right = 248.0
+offset_bottom = -112.0
+
 [connection signal="died" from="Joueur" to="Spawner" method="_on_joueur_died"]
 [connection signal="died" from="Joueur" to="SpawnerCoin" method="_on_joueur_died"]
 [connection signal="died" from="Joueur" to="EndGame" method="_on_joueur_died"]
+[connection signal="hit" from="Joueur" to="HealthBar" method="_on_joueur_hit"]
 [connection signal="timeout" from="Level_Timer" to="." method="_on_level_timer_timeout"]
 [connection signal="timeout" from="Level_Timer" to="Spawner" method="_on_level_timer_timeout"]
 [connection signal="timeout" from="Level_Timer" to="Label Timer" method="_on_level_timer_timeout"]
