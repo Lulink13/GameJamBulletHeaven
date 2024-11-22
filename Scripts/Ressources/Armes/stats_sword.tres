@@ -3,29 +3,29 @@
 [ext_resource type="Script" path="res://Scripts/Ressources/Ressource_Niveau_Arme.gd" id="1_0qhrb"]
 [ext_resource type="Script" path="res://Scripts/Ressources/Ressource_Stats_Arme.gd" id="2_mwl3p"]
 
-[sub_resource type="Resource" id="Resource_ihbsk"]
+[sub_resource type="Resource" id="Resource_1km1t"]
 script = ExtResource("1_0qhrb")
-cooldown = 1.0
+cooldown = 1.5
 multiplicateur_degats = 1.0
 "multiplicateur_portée" = 1.0
 penetration_prejectile = 0
 
-[sub_resource type="Resource" id="Resource_st3xk"]
+[sub_resource type="Resource" id="Resource_rwh2c"]
 script = ExtResource("1_0qhrb")
-cooldown = 0.6
+cooldown = 1.0
 multiplicateur_degats = 2.0
-"multiplicateur_portée" = 1.0
+"multiplicateur_portée" = 1.5
 penetration_prejectile = 0
 
-[sub_resource type="Resource" id="Resource_s3fll"]
+[sub_resource type="Resource" id="Resource_lk7uk"]
 script = ExtResource("1_0qhrb")
 cooldown = 0.5
 multiplicateur_degats = 2.0
-"multiplicateur_portée" = 1.5
+"multiplicateur_portée" = 2.0
 penetration_prejectile = 0
 
 [resource]
 script = ExtResource("2_mwl3p")
 nom_arme = "Epée"
-niveaux = Array[ExtResource("1_0qhrb")]([SubResource("Resource_ihbsk"), SubResource("Resource_st3xk"), SubResource("Resource_s3fll")])
+niveaux = Array[ExtResource("1_0qhrb")]([SubResource("Resource_1km1t"), SubResource("Resource_rwh2c"), SubResource("Resource_lk7uk")])
 stat_bonus = 0

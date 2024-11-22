@@ -1,17 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://bm86xw8pl2mlg"]
+[gd_scene load_steps=13 format=3 uid="uid://bm86xw8pl2mlg"]
 
 [ext_resource type="Script" path="res://Scripts/LogiqueJeu/jeu.gd" id="1_jfgx3"]
 [ext_resource type="PackedScene" uid="uid://bb7ey2tqrohc8" path="res://Scenes/Niveaux/Niveau_un.tscn" id="2_7drv5"]
 [ext_resource type="FontFile" uid="uid://cukbk04wlsnnk" path="res://Images/Fonts/VCR_OSD_MONO_1.001.ttf" id="2_80j63"]
 [ext_resource type="PackedScene" uid="uid://dricobr3vv6mk" path="res://Scenes/Niveaux/Niveau_deux.tscn" id="3_bc3cc"]
 [ext_resource type="PackedScene" uid="uid://cop73h0esmvdg" path="res://Scenes/Joueur/scene_joueur.tscn" id="3_xlibo"]
+[ext_resource type="PackedScene" uid="uid://ke3mrgg8mind" path="res://Scenes/Niveaux/Niveau_troa.tscn" id="4_1yvb8"]
+[ext_resource type="PackedScene" uid="uid://b0ldxwnr4d640" path="res://Scenes/Niveaux/Niveau_le_Q_mdr.tscn" id="5_eg2ul"]
+[ext_resource type="Texture2D" uid="uid://cfm055m7jca6l" path="res://Images/Tiles/Heart_icons/Heart_icon (10).png" id="7_8bl68"]
+[ext_resource type="Texture2D" uid="uid://dpotj0wb6usdr" path="res://Images/Tiles/Heart_icons/Heart_icon (6).png" id="8_a8v5u"]
 [ext_resource type="Script" path="res://Scripts/LogiqueJeu/label niveau.gd" id="8_xksqj"]
+[ext_resource type="Script" path="res://Scripts/LogiqueJeu/hp_bar.gd" id="9_qomc5"]
+[ext_resource type="PackedScene" path="res://Scenes/Menus/EndGame.tscn" id="10_gkgwo"]
 
 [node name="Racine" type="Node2D"]
 script = ExtResource("1_jfgx3")
-levels = Array[PackedScene]([ExtResource("2_7drv5"), ExtResource("3_bc3cc")])
+levels = Array[PackedScene]([ExtResource("2_7drv5"), ExtResource("3_bc3cc"), ExtResource("4_1yvb8"), ExtResource("5_eg2ul")])
 
 [node name="Joueur" parent="." instance=ExtResource("3_xlibo")]
+xp_curve = 1.3
 
 [node name="Label LV XP" type="Label" parent="."]
 top_level = true
@@ -21,3 +28,24 @@ offset_right = -213.0
 offset_bottom = -124.0
 theme_override_fonts/font = ExtResource("2_80j63")
 script = ExtResource("8_xksqj")
+
+[node name="HPBar" type="TextureProgressBar" parent="."]
+offset_left = -263.0
+offset_top = 116.0
+offset_right = -223.0
+offset_bottom = 156.0
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("7_8bl68")
+texture_progress = ExtResource("8_a8v5u")
+script = ExtResource("9_qomc5")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="EndGame" parent="." instance=ExtResource("10_gkgwo")]
+visible = false
+z_index = 3
+
+[connection signal="died" from="Joueur" to="EndGame" method="_on_joueur_died"]
+[connection signal="hit" from="Joueur" to="HPBar" method="_on_joueur_hit"]

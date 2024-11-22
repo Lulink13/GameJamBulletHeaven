@@ -11,11 +11,9 @@ var damage_multiplier = 1      # Adjust as needed
 var range_multiplier = 1
 var piercing = 0
 
-var projectile_node : Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	projectile_node = get_node("/root/Racine/Niveau/Projectiles")
 	set_level(0) 
 	pass # Replace with function body.
 
@@ -47,7 +45,7 @@ func set_level(level:int) :
 	$Timer.wait_time= shoot_cooldown
 	damage_multiplier = new_stats.multiplicateur_degats
 	range_multiplier = new_stats.multiplicateur_portée
-	#piercing = new_stats.penetration_prejectile
+	piercing = new_stats.penetration_prejectile
 
 func _on_joueur_died() -> void:
 	enabled=false

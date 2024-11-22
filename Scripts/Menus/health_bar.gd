@@ -18,7 +18,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _on_joueur_hit(hp: int, max_hp: int, xp: int) -> void:
+func _on_joueur_hit(hp: int, max_hp: int) -> void:
 	if hp == 0:
 		return
 	print("hp: ", hp, " - max_hp: ", max_hp)

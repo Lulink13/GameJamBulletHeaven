@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://hxif6bblhhsh"]
 
-[ext_resource type="Script" path="res://Scripts/Joueur/swordslash.gd" id="1_1l6xt"]
+[ext_resource type="Script" path="res://Scripts/Joueur/Shield_attack.gd" id="1_2rs67"]
 [ext_resource type="Texture2D" uid="uid://c3x0lngusskmq" path="res://Images/Tiles/SwordSlash.png" id="2_qosr8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n3qfg"]
@@ -243,7 +243,7 @@ _data = {
 z_index = 1
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("1_1l6xt")
+script = ExtResource("1_2rs67")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 2)

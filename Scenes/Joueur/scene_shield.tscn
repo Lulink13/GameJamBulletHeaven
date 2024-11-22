@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://nm8x4tvkupy"]
+
+[ext_resource type="Script" path="res://Scripts/Joueur/Shield.gd" id="1_n45ny"]
+[ext_resource type="Resource" uid="uid://dv4hu0bopmwbt" path="res://Scripts/Ressources/Armes/stats_shield.tres" id="2_a2wf0"]
+[ext_resource type="PackedScene" uid="uid://ckgiuv0u603bj" path="res://Scenes/Joueur/scene_shield_attack.tscn" id="3_yysn1"]
+
+[node name="Shield" type="Node2D"]
+script = ExtResource("1_n45ny")
+stats = ExtResource("2_a2wf0")
+projectile_scene = ExtResource("3_yysn1")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -7,7 +7,7 @@ var player: Node2D
 var itemNode: Node
 var speed : int = 60
 var contactDamage : int = 1
-var hp = 1
+var hp = 2
 var alive = true
 
 func _ready() -> void:
@@ -42,7 +42,15 @@ func damage(ammount:int):
 		coin.random_move()
 		$Hurtbox.queue_free()
 		$AnimatedSprite2D.play("death")
+	else :
+		$Timer.start()
+		modulate = Color("Red")
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	queue_free()
+	pass # Replace with function body.
+
+
+func _on_timer_timeout() -> void:
+	modulate = Color("White")
 	pass # Replace with function body.

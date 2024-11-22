@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Stats_Arme" load_steps=5 format=3 uid="uid://bs8j35durklah"]
+[gd_resource type="Resource" script_class="Stats_Arme" load_steps=6 format=3 uid="uid://bs8j35durklah"]
 
 [ext_resource type="Script" path="res://Scripts/Ressources/Ressource_Niveau_Arme.gd" id="1_2pyx8"]
 [ext_resource type="Script" path="res://Scripts/Ressources/Ressource_Stats_Arme.gd" id="1_rmxwb"]
@@ -17,8 +17,15 @@ multiplicateur_degats = 1.0
 "multiplicateur_portée" = 1.0
 penetration_prejectile = 1
 
+[sub_resource type="Resource" id="Resource_u6qm7"]
+script = ExtResource("1_2pyx8")
+cooldown = 0.2
+multiplicateur_degats = 2.0
+"multiplicateur_portée" = 1.5
+penetration_prejectile = 2
+
 [resource]
 script = ExtResource("1_rmxwb")
 nom_arme = "Arbalette"
-niveaux = Array[ExtResource("1_2pyx8")]([SubResource("Resource_y7qsm"), SubResource("Resource_holev")])
+niveaux = Array[ExtResource("1_2pyx8")]([SubResource("Resource_y7qsm"), SubResource("Resource_holev"), SubResource("Resource_u6qm7")])
 stat_bonus = 0

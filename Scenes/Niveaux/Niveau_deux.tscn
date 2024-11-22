@@ -96,10 +96,10 @@ spawnable = ExtResource("5_ncd7n")
 zoom = Vector2(3, 3)
 
 [node name="Label Timer" type="Label" parent="Camera2D"]
-offset_left = 209.0
-offset_top = -133.0
-offset_right = 249.0
-offset_bottom = -110.0
+offset_left = -16.0
+offset_top = -138.0
+offset_right = 24.0
+offset_bottom = -115.0
 theme_override_fonts/font = ExtResource("7_yobr7")
 horizontal_alignment = 1
 script = ExtResource("9_eyxm5")
@@ -114,6 +114,7 @@ collision_layer = 64
 monitoring = false
 monitorable = false
 script = ExtResource("10_0rnwc")
+level_id = 2
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Portal"]
 visible = false

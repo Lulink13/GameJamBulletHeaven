@@ -2,15 +2,19 @@ extends CharacterBody2D
 class_name Joueur
 
 signal died
+signal hit
 signal levelUP
 
+@export var animations : Array[SpriteFrames]
+@export var starting_stats : Array[Character_Stats]
 @export var xp_curve : float = 1.3
 
-const SPEED : float = 180
+var speed : float = 180
 const ACCEL : float = 1000
 const DECEL : float = 1600
 
-var hp : int = 3
+var max_hp: int
+var hp : int = max_hp
 var spd : Vector2 = Vector2(0, 0)
 var aim: Vector2 = Vector2(0,1)
 
@@ -22,6 +26,17 @@ var invuln : bool = false
 var alive = true
 
 var attack : int = 1
+
+func _ready() -> void:
+	var id = Globales.character
+	$AnimatedSprite2D.sprite_frames = animations[id]
+	max_hp = starting_stats[id].max_hp
+	hp = max_hp
+	speed = starting_stats[id].speed
+	if Globales.character == 0 : $CrossBow.enabled=true
+	if Globales.character == 1 : $Sword.enabled=true
+	if Globales.character == 2 : $Shield.enabled=true
+	
 
 func show_end_game() -> void:
 	# Instance the end game scene
@@ -64,7 +79,7 @@ func _physics_process(delta):
 		tmp_spd.y = spd.move_toward(Vector2(0,0), DECEL*delta).y
 	else :
 		tmp_spd.y = spd.y + (direction.y * ACCEL*delta)
-	spd = tmp_spd.limit_length(SPEED)
+	spd = tmp_spd.limit_length(speed)
 	
 	if velocity.length() > 0.5:
 		aim = velocity.normalized()
@@ -75,6 +90,7 @@ func _physics_process(delta):
 func damage(ammount:int):
 	if not invuln :
 		hp -= ammount
+		hit.emit(hp, max_hp)
 		if hp <= 0:
 			modulate = Color("White")
 			$AnimatedSprite2D.play("Tomb")

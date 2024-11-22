@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://7dgu2j2d2n0m"]
+[gd_scene load_steps=3 format=3 uid="uid://dr40srbg84ffr"]
 
 [ext_resource type="Texture2D" uid="uid://dpotj0wb6usdr" path="res://Images/Tiles/Heart_icons/Heart_icon (6).png" id="1_i8nd1"]
 [ext_resource type="Script" path="res://Scripts/Menus/health_bar.gd" id="2_1l34r"]
@@ -7,10 +7,8 @@
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 152.0
-offset_top = -48.0
-offset_right = -1416.0
-offset_bottom = -918.0
+offset_right = -1568.0
+offset_bottom = -870.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_i8nd1")
