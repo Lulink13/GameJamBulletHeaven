@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_dark_elf_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Niveaux/Niveau_UN.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Niveaux/Jeu.tscn")
 	
 func _on_fighter_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Niveaux/Niveau_UN.tscn")

@@ -1,19 +1,22 @@
 extends Area2D
 class_name Objet
 
-const MAX_SPEED = 50
+const MAX_SPEED = 20
 const FOLLOW_SPEED = 300
 var follow : Node = null
 
+var rng = RandomNumberGenerator.new()
 var tween : Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var rng = RandomNumberGenerator.new()
-	tween = get_tree().create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
-	var movement = Vector2(rng.randf_range(-MAX_SPEED, MAX_SPEED), rng.randf_range(-MAX_SPEED, MAX_SPEED))
-	tween.tween_property(self, "global_position",global_position+movement, 1)
+	tween = get_tree().create_tween()
+	tween.set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	pass # Replace with function body.
+
+func random_move():
+	var movement = Vector2(rng.randf_range(-MAX_SPEED, MAX_SPEED), rng.randf_range(-MAX_SPEED, MAX_SPEED))
+	tween.tween_property(self, "position",position+movement, 1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -15,6 +15,7 @@ script = ExtResource("1_wu71x")
 shape = SubResource("RectangleShape2D_qiycg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -13)
 texture = ExtResource("2_n362j")
 

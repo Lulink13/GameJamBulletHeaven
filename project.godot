@@ -20,6 +20,12 @@ config/icon="res://Images/icon.svg"
 window/size/viewport_width=1600
 window/size/viewport_height=900
 
+[global_group]
+
+Joueur=""
+Spawner=""
+Ennemi=""
+
 [importer_defaults]
 
 animation_library={
