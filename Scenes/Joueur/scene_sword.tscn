@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://dq0fgpt05385k"]
 
-[ext_resource type="Script" path="res://Scripts/Joueur/Shield.gd" id="1_5xh6m"]
+[ext_resource type="Script" path="res://Scripts/Joueur/Sword.gd" id="1_4ylvf"]
 [ext_resource type="Resource" uid="uid://cjbicftic4063" path="res://Scripts/Ressources/Armes/stats_sword.tres" id="2_1yust"]
 [ext_resource type="PackedScene" uid="uid://hxif6bblhhsh" path="res://Scenes/Joueur/scene_swordslash.tscn" id="3_cfdbf"]
 
 [node name="Sword" type="Node2D"]
-script = ExtResource("1_5xh6m")
+script = ExtResource("1_4ylvf")
 stats = ExtResource("2_1yust")
 projectile_scene = ExtResource("3_cfdbf")
 

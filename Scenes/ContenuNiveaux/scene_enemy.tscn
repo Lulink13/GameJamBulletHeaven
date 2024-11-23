@@ -1,9 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://bpttjmqifxeje"]
+[gd_scene load_steps=21 format=3 uid="uid://bpttjmqifxeje"]
 
 [ext_resource type="Script" path="res://Scripts/Ennemis/Ennemi.gd" id="1_xyglr"]
 [ext_resource type="PackedScene" uid="uid://d0dtwv8tpr64v" path="res://Scenes/ContenuNiveaux/coin.tscn" id="2_bvqtq"]
 [ext_resource type="Texture2D" uid="uid://bqbbqila16o1i" path="res://Images/Enemies/Rat/Rat_walk_right.png" id="3_xlqxf"]
 [ext_resource type="Texture2D" uid="uid://bweylh6cc1jop" path="res://Images/Enemies/Rat/Rat_Death_right.png" id="4_waxoi"]
+[ext_resource type="AudioStream" uid="uid://dtlxw6nwvwfii" path="res://sounds effects/Rat Sounds Effect death.mp3" id="5_y7c7h"]
+[ext_resource type="AudioStream" uid="uid://bgqouu5slgwlq" path="res://sounds effects/Rat Squeaking Sound Effect spawn.mp3" id="6_ht5x1"]
+[ext_resource type="AudioStream" uid="uid://ejttxqfcsmp4" path="res://sounds effects/taking damage Sound Effect.mp3" id="7_ivlk7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vffb2"]
 radius = 7.07107
@@ -124,6 +127,20 @@ autoplay = "Run"
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="Audio_Dead" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_y7c7h")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Audio_Spawn" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ht5x1")
+volume_db = -20.0
+autoplay = true
+bus = &"SFX"
+
+[node name="Audio_Damage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_ivlk7")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

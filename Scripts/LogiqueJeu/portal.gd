@@ -3,6 +3,8 @@ signal next_level
 
 @export var level_id:int
 
+var rng = RandomNumberGenerator.new()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -18,8 +20,9 @@ func _on_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
 
 
-func _on_racine_winner_is_you() -> void:
+func _on_niveau_winner_is_you() -> void:
 	monitorable=true
 	monitoring=true
 	$Sprite2D.visible = true
-	pass # Replace with function body.
+	if rng.randf() > 0.9:
+		$AudioStreamPlayer2D.play()

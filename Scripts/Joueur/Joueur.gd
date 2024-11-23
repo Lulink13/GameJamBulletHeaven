@@ -56,6 +56,7 @@ func _physics_process(delta):
 	#print(direction)
 	
 	if direction!= Vector2(0,0) :
+		if $AudioStreamPlayer2D.playing==false:$AudioStreamPlayer2D.play()
 		if abs(direction.x) > abs(direction.y):
 			if direction.x > 0 :
 				$AnimatedSprite2D.play("Walk_R")
@@ -68,6 +69,7 @@ func _physics_process(delta):
 				$AnimatedSprite2D.play("Walk_U")
 	else :
 		$AnimatedSprite2D.play("Idle")
+		$AudioStreamPlayer2D.playing=false
 	
 	var tmp_spd : Vector2
 #-- Accélération --
@@ -88,13 +90,14 @@ func _physics_process(delta):
 	move_and_slide()
 
 func damage(ammount:int):
-	if not invuln :
+	if not invuln and alive :
 		hp -= ammount
 		hit.emit(hp, max_hp)
 		if hp <= 0:
 			modulate = Color("White")
 			$AnimatedSprite2D.play("Tomb")
-			#$CollisionShape2D.queue_free()
+			$CollisionShape2D.queue_free()
+			$AudioDeath.play()
 			$CoinVaccum.monitorable = false
 			alive = false
 			died.emit()
@@ -103,6 +106,8 @@ func damage(ammount:int):
 			invuln = true
 			$InvulnTimer.start()
 			modulate = Color("Red")
+			$AudioDamage.play()
+			
 
 func collect_xp(ammount:int):
 	xp += ammount

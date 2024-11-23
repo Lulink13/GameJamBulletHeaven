@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dv18lk1cvq0lk"]
+[gd_scene load_steps=6 format=3 uid="uid://dv18lk1cvq0lk"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/StartMenu.gd" id="1_sdkrr"]
 [ext_resource type="Texture2D" uid="uid://d4kgmxjfha0sq" path="res://Images/Tiles/UI/Menu/Play1.png" id="2_fqsld"]
 [ext_resource type="Texture2D" uid="uid://c2yhkbnnwnkjb" path="res://Images/Tiles/UI/Menu/Options1.png" id="3_8jwo5"]
 [ext_resource type="Texture2D" uid="uid://qje1ewiubno" path="res://Images/Tiles/UI/Menu/Exit1.png" id="4_ls4aq"]
+[ext_resource type="AudioStream" uid="uid://binms4mw36le3" path="res://sounds effects/musics/Musique écran d'acceuil.mp3" id="5_o03e3"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -47,6 +48,11 @@ flat = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(800, 450)
 zoom = Vector2(3, 3)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_o03e3")
+autoplay = true
+bus = &"Musique"
 
 [connection signal="gui_input" from="VBoxContainer/StartButton" to="." method="_on_start_button_gui_input"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

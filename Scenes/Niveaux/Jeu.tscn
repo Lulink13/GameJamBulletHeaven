@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bm86xw8pl2mlg"]
+[gd_scene load_steps=14 format=3 uid="uid://bm86xw8pl2mlg"]
 
 [ext_resource type="Script" path="res://Scripts/LogiqueJeu/jeu.gd" id="1_jfgx3"]
 [ext_resource type="PackedScene" uid="uid://bb7ey2tqrohc8" path="res://Scenes/Niveaux/Niveau_un.tscn" id="2_7drv5"]
@@ -12,13 +12,13 @@
 [ext_resource type="Script" path="res://Scripts/LogiqueJeu/label niveau.gd" id="8_xksqj"]
 [ext_resource type="Script" path="res://Scripts/LogiqueJeu/hp_bar.gd" id="9_qomc5"]
 [ext_resource type="PackedScene" path="res://Scenes/Menus/EndGame.tscn" id="10_gkgwo"]
+[ext_resource type="AudioStream" uid="uid://43efg1wgicgi" path="res://sounds effects/musics/city ost.mp3" id="13_bgh61"]
 
 [node name="Racine" type="Node2D"]
 script = ExtResource("1_jfgx3")
 levels = Array[PackedScene]([ExtResource("2_7drv5"), ExtResource("3_bc3cc"), ExtResource("4_1yvb8"), ExtResource("5_eg2ul")])
 
 [node name="Joueur" parent="." instance=ExtResource("3_xlibo")]
-xp_curve = 1.3
 
 [node name="Label LV XP" type="Label" parent="."]
 top_level = true
@@ -46,6 +46,12 @@ zoom = Vector2(3, 3)
 [node name="EndGame" parent="." instance=ExtResource("10_gkgwo")]
 visible = false
 z_index = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_bgh61")
+volume_db = -15.0
+autoplay = true
+bus = &"Musique"
 
 [connection signal="died" from="Joueur" to="EndGame" method="_on_joueur_died"]
 [connection signal="hit" from="Joueur" to="HPBar" method="_on_joueur_hit"]

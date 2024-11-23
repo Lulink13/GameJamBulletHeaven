@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Musique écran d'acceuil.mp3-52c5a471e8ed8104
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

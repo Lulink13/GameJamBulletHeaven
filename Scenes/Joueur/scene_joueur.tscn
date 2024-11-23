@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cop73h0esmvdg"]
+[gd_scene load_steps=17 format=3 uid="uid://cop73h0esmvdg"]
 
 [ext_resource type="Script" path="res://Scripts/Joueur/Joueur.gd" id="1_i4xdb"]
 [ext_resource type="SpriteFrames" uid="uid://6fj32vmnsuvj" path="res://Scenes/Joueur/Crusader_sprite_frames.tres" id="2_qe1pp"]
@@ -7,7 +7,10 @@
 [ext_resource type="SpriteFrames" uid="uid://beqo7tima8u8t" path="res://Scenes/Joueur/Fighter_sprite_frames.tres" id="3_wibih"]
 [ext_resource type="Script" path="res://Scripts/Ressources/Ressource_Character_Stats.gd" id="5_4uqv8"]
 [ext_resource type="PackedScene" uid="uid://nm8x4tvkupy" path="res://Scenes/Joueur/scene_shield.tscn" id="8_fdvgm"]
+[ext_resource type="AudioStream" uid="uid://da4ncp8ilv7o0" path="res://sounds effects/Footsteps Walking on Concrete  1sec Sound Effects.mp3" id="9_2r8io"]
 [ext_resource type="PackedScene" uid="uid://dq0fgpt05385k" path="res://Scenes/Joueur/scene_sword.tscn" id="9_66es1"]
+[ext_resource type="AudioStream" uid="uid://ejttxqfcsmp4" path="res://sounds effects/taking damage Sound Effect.mp3" id="10_eg0xp"]
+[ext_resource type="AudioStream" uid="uid://cgia53yabqb3l" path="res://sounds effects/roblox-death-sound_1.mp3" id="11_63i63"]
 
 [sub_resource type="Resource" id="Resource_lefar"]
 script = ExtResource("5_4uqv8")
@@ -41,10 +44,10 @@ starting_stats = Array[ExtResource("5_4uqv8")]([SubResource("Resource_lefar"), S
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
 position = Vector2(0, -9)
-sprite_frames = ExtResource("2_qe1pp")
-animation = &"Idle"
+sprite_frames = ExtResource("3_wibih")
+animation = &"Walk_L"
 autoplay = "Idle"
-frame_progress = 0.699141
+frame_progress = 0.300179
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_s8dhf")
@@ -68,6 +71,16 @@ enabled = false
 
 [node name="Shield" parent="." instance=ExtResource("8_fdvgm")]
 enabled = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_2r8io")
+bus = &"SFX"
+
+[node name="AudioDamage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_eg0xp")
+
+[node name="AudioDeath" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_63i63")
 
 [connection signal="died" from="." to="CrossBow" method="_on_joueur_died"]
 [connection signal="died" from="." to="Sword" method="_on_joueur_died"]

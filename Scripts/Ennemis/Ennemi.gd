@@ -33,18 +33,21 @@ func _process(delta: float) -> void:
 				collision.get_collider().damage(contactDamage)
 
 func damage(ammount:int):
-	hp -= ammount
-	if hp <= 0 :
-		alive = false
-		var coin:Objet = spawnable.instantiate()
-		get_parent().add_child(coin)
-		coin.position = position
-		coin.random_move()
-		$Hurtbox.queue_free()
-		$AnimatedSprite2D.play("death")
-	else :
-		$Timer.start()
-		modulate = Color("Red")
+	if alive :
+		hp -= ammount
+		if hp <= 0 :
+			alive = false
+			$Audio_Dead.play()
+			var coin:Objet = spawnable.instantiate()
+			get_parent().add_child(coin)
+			coin.position = position
+			coin.random_move()
+			$Hurtbox.queue_free()
+			$AnimatedSprite2D.play("death")
+		else :
+			$Timer.start()
+			modulate = Color("Red")
+			$Audio_Damage.play()
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	queue_free()
